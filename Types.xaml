@@ -1,0 +1,17 @@
+﻿<Page x:Class="Card_Creator.Types"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Card_Creator"
+      mc:Ignorable="d" 
+      d:DesignHeight="691.2" d:DesignWidth="1280"
+      Title="Types">
+
+	<Grid>
+		<ScrollViewer x:Name="TypeView" VerticalScrollBarVisibility="Hidden" Grid.Row="0" Grid.Column="0">
+			<StackPanel x:Name="TypeViewPanel">
+			</StackPanel>
+		</ScrollViewer>
+	</Grid>
+</Page>

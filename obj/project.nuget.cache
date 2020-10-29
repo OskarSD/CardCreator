@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "Oa3sisYOR2IY+GQfAF0qxDYdq1TFo5ueIH1pS/Y4JHQtSgHioewwv23324Fu63y5X2LGgwQaPd7W+D6fAOQfjA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ostav\\Documents\\Visual Studio Projects\\Card Creator\\Card Creator.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ostav\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

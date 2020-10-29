@@ -1,0 +1,31 @@
+C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\bin\Debug\netcoreapp3.1\Card Creator.exe
+C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\bin\Debug\netcoreapp3.1\Card Creator.deps.json
+C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\bin\Debug\netcoreapp3.1\Card Creator.runtimeconfig.json
+C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\bin\Debug\netcoreapp3.1\Card Creator.runtimeconfig.dev.json
+C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\bin\Debug\netcoreapp3.1\Card Creator.dll
+C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\bin\Debug\netcoreapp3.1\Card Creator.pdb
+C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\obj\Debug\netcoreapp3.1\App.g.cs
+C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\obj\Debug\netcoreapp3.1\Card Creator_MarkupCompile.cache
+C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\obj\Debug\netcoreapp3.1\Card Creator_MarkupCompile.lref
+C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\obj\Debug\netcoreapp3.1\MainWindow.baml
+C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\obj\Debug\netcoreapp3.1\Card Creator.g.resources
+C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\obj\Debug\netcoreapp3.1\Card Creator.AssemblyInfoInputs.cache
+C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\obj\Debug\netcoreapp3.1\Card Creator.AssemblyInfo.cs
+C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\obj\Debug\netcoreapp3.1\Card Creator.dll
+C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\obj\Debug\netcoreapp3.1\Card Creator.pdb
+C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\obj\Debug\netcoreapp3.1\Card Creator.genruntimeconfig.cache
+C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\obj\Debug\netcoreapp3.1\Collection.g.cs
+C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\obj\Debug\netcoreapp3.1\Collection.baml
+C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\obj\Debug\netcoreapp3.1\Card Creator.csproj.CoreCompileInputs.cache
+C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\obj\Debug\netcoreapp3.1\Card Creator.csproj.CopyComplete
+C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\obj\Debug\netcoreapp3.1\Types.g.cs
+C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\obj\Debug\netcoreapp3.1\Types.baml
+C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\obj\Debug\netcoreapp3.1\TypeEditor.g.cs
+C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\obj\Debug\netcoreapp3.1\TypeEditor.baml
+C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\obj\Debug\netcoreapp3.1\Preview.g.cs
+C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\obj\Debug\netcoreapp3.1\Preview.baml
+C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\obj\Debug\netcoreapp3.1\CardEditor.g.cs
+C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\obj\Debug\netcoreapp3.1\CardEditor.baml
+C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\obj\Debug\netcoreapp3.1\Card Creator.csprojAssemblyReference.cache

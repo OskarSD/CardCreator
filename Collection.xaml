@@ -1,0 +1,64 @@
+﻿<Page x:Class="Card_Creator.Collection"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Card_Creator"
+      mc:Ignorable="d" 
+      d:DesignHeight="691.2" d:DesignWidth="1280"
+      Title="Collection" >
+	
+	<Grid x:Name="CollectionGrid">
+		<Grid.RowDefinitions>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="15*"/>
+			<ColumnDefinition Width="5*"/>
+		</Grid.ColumnDefinitions>
+		<Border Background="#202020" Grid.Row="0" Grid.Column="1"/>
+
+		<ScrollViewer x:Name="CardView" VerticalScrollBarVisibility="Hidden" Grid.Row="0" Grid.Column="0">
+			<StackPanel x:Name="CardViewPanel">
+			</StackPanel>
+		</ScrollViewer>
+
+		<Grid x:Name="FilterGrid" Grid.Row="0" Grid.Column="1">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="3*"/>
+				<RowDefinition Height="1*"/>
+				<RowDefinition Height="2*"/>
+				<RowDefinition Height="1*"/>
+				<RowDefinition Height="5*"/>
+				<RowDefinition Height="1*"/>
+				<RowDefinition Height="5*"/>
+				<RowDefinition Height="1*"/>
+				<RowDefinition Height="5*"/>
+				<RowDefinition Height="2*"/>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="1*"/>
+				<ColumnDefinition Width="1*"/>
+				<ColumnDefinition Width="1*"/>
+				<ColumnDefinition Width="3*"/>
+				<ColumnDefinition Width="1*"/>
+				<ColumnDefinition Width="1*"/>
+				<ColumnDefinition Width="1*"/>
+			</Grid.ColumnDefinitions>
+			<Border x:Name="SearchBox" Background="#464649" Panel.ZIndex="1" Margin="0, 15, 0, 15" CornerRadius="8" BorderThickness="0" BorderBrush="#999999" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="3"/>
+			<TextBox Background="#464649" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Panel.ZIndex="1" Margin="2, 25, 2, 25" Text="" Foreground="White" BorderThickness="0" FontSize="16" MaxLength="20" VerticalContentAlignment="Center" Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2"/>
+			<Image Height="24" Width="24" Panel.ZIndex="2" Margin="0, 0, 0, 0" Source="/Assets/SearchIcon.png" Grid.Row="0" Grid.Column="2"/>
+			<Border Background="#262629" CornerRadius="8" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="5">
+				<Grid x:Name="ManaGrid">
+				</Grid>
+			</Border>
+			<Border Background="#262629" CornerRadius="8" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="5">
+				<Grid x:Name="LifeGrid">
+				</Grid>
+			</Border>
+			<Border Background="#262629" CornerRadius="8" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="5">
+				<Grid x:Name="AttackGrid">
+				</Grid>
+			</Border>
+		</Grid>
+	</Grid>
+</Page>

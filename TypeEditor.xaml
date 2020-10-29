@@ -1,0 +1,201 @@
+﻿<Page x:Class="Card_Creator.TypeEditor"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Card_Creator"
+      mc:Ignorable="d" 
+      d:DesignHeight="691.2" d:DesignWidth="1280"
+      Title="TypeEditor">
+	
+	<Grid x:Name="TypeEditorGrid">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="4*"/>
+			<RowDefinition Height="6*"/>
+			<RowDefinition Height="2*"/>
+			<RowDefinition Height="4*"/>
+			<RowDefinition Height="4*"/>
+			<RowDefinition Height="4*"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="10*"/>
+			<ColumnDefinition Width="5*"/>
+			<ColumnDefinition Width="5*"/>
+			<ColumnDefinition Width="5*"/>
+			<ColumnDefinition Width="5*"/>
+			<ColumnDefinition Width="10*"/>
+		</Grid.ColumnDefinitions>
+		<Border x:Name="PopupBackground" Panel.ZIndex="4" Opacity="0.5" Background="#242424" Visibility="Hidden" Grid.Row="0" Grid.RowSpan="6" Grid.ColumnSpan="6"/>
+		<Border x:Name="ValidPopup" Background="#2a2a2a" Visibility="Hidden" Panel.ZIndex="5" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="1*"/>
+					<ColumnDefinition Width="2*"/>
+					<ColumnDefinition Width="1*"/>
+					<ColumnDefinition Width="2*"/>
+					<ColumnDefinition Width="1*"/>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="1*"/>
+					<RowDefinition Height="2*"/>
+					<RowDefinition Height="1*"/>
+					<RowDefinition Height="2*"/>
+					<RowDefinition Height="1*"/>
+				</Grid.RowDefinitions>
+				<TextBlock Text="Type Saved" FontSize="24" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5"/>
+				<Button x:Name="TypesButton" Content="View Types" Click="ToTypes" FontSize="18" FontWeight="Light" Foreground="White" Background="#3b3b3b" BorderThickness="0" Grid.Column="1" Grid.Row="3"/>
+				<Button x:Name="RestartButton" Content="New Type" Click="RestartButton_Click" FontSize="18" FontWeight="Light" Foreground="White" Background="#3b3b3b" BorderThickness="0" Grid.Column="3" Grid.Row="3"/>
+			</Grid>
+		</Border>
+		<Border x:Name="InvalidPopup" Background="#2a2a2a" Visibility="Hidden" Panel.ZIndex="5" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="2*"/>
+					<ColumnDefinition Width="3*"/>
+					<ColumnDefinition Width="4*"/>
+					<ColumnDefinition Width="3*"/>
+					<ColumnDefinition Width="2*"/>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="1*"/>
+					<RowDefinition Height="2*"/>
+					<RowDefinition Height="1*"/>
+					<RowDefinition Height="2*"/>
+					<RowDefinition Height="1*"/>
+				</Grid.RowDefinitions>
+				<TextBlock Text="Something went wrong" FontSize="24" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5"/>
+				<Button x:Name="OKButton" Content="OK" Click="OKButton_Click" FontSize="18" FontWeight="Light" Foreground="White" Background="#3b3b3b" BorderThickness="0" Grid.Column="2" Grid.Row="3"/>
+			</Grid>
+		</Border>
+		<Border Background="#202020" CornerRadius="8" Grid.Row="1" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4"/>
+		<Grid x:Name="TypeEditorGridL" Grid.Row="1" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="2">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="4*"/>
+				<RowDefinition Height="3*"/>
+				<RowDefinition Height="1*"/>
+				<RowDefinition Height="6*"/>
+				<RowDefinition Height="4*"/>
+				<RowDefinition Height="3*"/>
+				<RowDefinition Height="1*"/>
+				<RowDefinition Height="12*"/>
+				<RowDefinition Height="4*"/>
+				<RowDefinition Height="3*"/>
+				<RowDefinition Height="1*"/>
+				<RowDefinition Height="2*"/>
+				<RowDefinition Height="5*"/>
+				<RowDefinition Height="2*"/>
+				<RowDefinition Height="5*"/>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="2*"/>
+				<ColumnDefinition Width="1*"/>
+				<ColumnDefinition Width="1*"/>
+				<ColumnDefinition Width="2*"/>
+				<ColumnDefinition Width="2*"/>
+				<ColumnDefinition Width="2*"/>
+				<ColumnDefinition Width="2*"/>
+				<ColumnDefinition Width="2*"/>
+				<ColumnDefinition Width="1*"/>
+				<ColumnDefinition Width="1*"/>
+				<ColumnDefinition Width="2*"/>
+			</Grid.ColumnDefinitions>
+			<TextBlock Text="Name" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Light" FontSize="20" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="3"/>
+			<Border x:Name="NameBox" Background="#464649" Panel.ZIndex="1" CornerRadius="8" BorderThickness="0" BorderBrush="#999999" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="5"/>
+			<TextBox x:Name="NameBoxText" Background="#464649" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Panel.ZIndex="1" Margin="5, 5, 5, 5" Text="" Foreground="White" BorderThickness="0" FontSize="16" MaxLength="20" VerticalContentAlignment="Center" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="5"/>
+			<TextBlock Text="Description" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Light" FontSize="20" Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="3"/>
+			<Border x:Name="DescBox" Background="#464649" Panel.ZIndex="1" CornerRadius="8" BorderThickness="0" BorderBrush="#999999" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="9"/>
+			<TextBox x:Name="DescBoxText" Background="#464649" GotFocus="TextBox_GotFocus_1" LostFocus="TextBox_LostFocus_1" Panel.ZIndex="1" Margin="5, 5, 5, 5" TextWrapping="Wrap" Text="" Foreground="White" BorderThickness="0" FontSize="16" MaxLength="60" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="9"/>
+			<TextBlock Text="Color" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Light" FontSize="20" Grid.Row="9" Grid.Column="4" Grid.ColumnSpan="3"/>
+			<Border x:Name="ColorBox" Background="#464649" Panel.ZIndex="1" CornerRadius="8" BorderThickness="0" BorderBrush="#999999" Grid.Row="12" Grid.Column="2" Grid.ColumnSpan="3"/>
+			<TextBox x:Name="ColorBoxText" TextChanged="ColorText_TextChanged" Background="#464649" Opacity=".7" Text="#ffffff" GotFocus="TextBox_GotFocus_8" LostFocus="TextBox_LostFocus_8" Panel.ZIndex="1" Margin="5, 5, 5, 5" TextWrapping="Wrap" Foreground="White" BorderThickness="0" FontSize="16" MaxLength="7" VerticalContentAlignment="Center" Grid.Row="12" Grid.Column="2" Grid.ColumnSpan="3"/>
+		</Grid>
+		<Grid x:Name="TypeEditorGridR" Grid.Row="1" Grid.RowSpan="4" Grid.Column="3" Grid.ColumnSpan="2">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="2*"/>
+				<RowDefinition Height="6*"/>
+				<RowDefinition Height="1*"/>
+				<RowDefinition Height="6*"/>
+				<RowDefinition Height="1*"/>
+				<RowDefinition Height="6*"/>
+				<RowDefinition Height="2*"/>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="1*"/>
+				<ColumnDefinition Width="7*"/>
+				<ColumnDefinition Width="1*"/>
+			</Grid.ColumnDefinitions>
+			<Border Background="#262629" CornerRadius="8" Grid.Row="1" Grid.Column="1">
+				<Grid x:Name="LifeGrid">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="2*"/>
+						<ColumnDefinition Width="4*"/>
+						<ColumnDefinition Width="5*"/>
+						<ColumnDefinition Width="4*"/>
+						<ColumnDefinition Width="2*"/>
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="6*"/>
+						<RowDefinition Height="5*"/>
+						<RowDefinition Height="7*"/>
+						<RowDefinition Height="4*"/>
+					</Grid.RowDefinitions>
+					<TextBlock Text="Life" Foreground="White" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3"/>
+					<TextBlock Text="Min" Foreground="White" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1"/>
+					<Border x:Name="MinLifeBox" Background="#464649" Panel.ZIndex="1" Margin="0" CornerRadius="8" BorderThickness="0" BorderBrush="#999999" Grid.Row="2" Grid.Column="1"/>
+					<TextBox x:Name="MinLifeBoxText" Background="#464649" GotFocus="TextBox_GotFocus_2" LostFocus="TextBox_LostFocus_2" Panel.ZIndex="1" Margin="5, 5, 5, 5" Text="" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  BorderThickness="0" FontSize="14" MaxLength="2" Grid.Row="2" Grid.Column="1"/>
+					<TextBlock Text="Max" Foreground="White" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="3"/>
+					<Border x:Name="MaxLifeBox" Background="#464649" Panel.ZIndex="1" Margin="0" CornerRadius="8" BorderThickness="0" BorderBrush="#999999" Grid.Row="2" Grid.Column="3"/>
+					<TextBox x:Name="MaxLifeBoxText" Background="#464649" GotFocus="TextBox_GotFocus_3" LostFocus="TextBox_LostFocus_3" Panel.ZIndex="1" Margin="5, 5, 5, 5" Text="" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  BorderThickness="0" FontSize="14" MaxLength="2" Grid.Row="2" Grid.Column="3"/>
+				</Grid>
+			</Border>
+			<Border Background="#262629" CornerRadius="8" Grid.Row="3" Grid.Column="1">
+				<Grid x:Name="DamageGrid">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="2*"/>
+						<ColumnDefinition Width="4*"/>
+						<ColumnDefinition Width="5*"/>
+						<ColumnDefinition Width="4*"/>
+						<ColumnDefinition Width="2*"/>
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="6*"/>
+						<RowDefinition Height="5*"/>
+						<RowDefinition Height="7*"/>
+						<RowDefinition Height="4*"/>
+					</Grid.RowDefinitions>
+					<TextBlock Text="Damage" Foreground="White" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3"/>
+					<TextBlock Text="Min" Foreground="White" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1"/>
+					<Border x:Name="MinDamageBox" Background="#464649" Panel.ZIndex="1" Margin="0" CornerRadius="8" BorderThickness="0" BorderBrush="#999999" Grid.Row="2" Grid.Column="1"/>
+					<TextBox x:Name="MinDamageBoxText" Background="#464649" GotFocus="TextBox_GotFocus_4" LostFocus="TextBox_LostFocus_4" Panel.ZIndex="1" Margin="5, 5, 5, 5" Text="" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  BorderThickness="0" FontSize="14" MaxLength="2" Grid.Row="2" Grid.Column="1"/>
+					<TextBlock Text="Max" Foreground="White" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="3"/>
+					<Border x:Name="MaxDamageBox" Background="#464649" Panel.ZIndex="1" Margin="0" CornerRadius="8" BorderThickness="0" BorderBrush="#999999" Grid.Row="2" Grid.Column="3"/>
+					<TextBox x:Name="MaxDamageBoxText" Background="#464649" GotFocus="TextBox_GotFocus_5" LostFocus="TextBox_LostFocus_5" Panel.ZIndex="1" Margin="5, 5, 5, 5" Text="" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  BorderThickness="0" FontSize="14" MaxLength="2" Grid.Row="2" Grid.Column="3"/>
+				</Grid>
+			</Border>
+			<Border Background="#262629" CornerRadius="8" Grid.Row="5" Grid.Column="1">
+				<Grid x:Name="ManaGrid">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="2*"/>
+						<ColumnDefinition Width="4*"/>
+						<ColumnDefinition Width="5*"/>
+						<ColumnDefinition Width="4*"/>
+						<ColumnDefinition Width="2*"/>
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="6*"/>
+						<RowDefinition Height="5*"/>
+						<RowDefinition Height="7*"/>
+						<RowDefinition Height="4*"/>
+					</Grid.RowDefinitions>
+					<TextBlock Text="Mana" Foreground="White" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3"/>
+					<TextBlock Text="Min" Foreground="White" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1"/>
+					<Border x:Name="MinManaBox" Background="#464649" Panel.ZIndex="1" Margin="0" CornerRadius="8" BorderThickness="0" BorderBrush="#999999" Grid.Row="2" Grid.Column="1"/>
+					<TextBox x:Name="MinManaBoxText" Background="#464649" GotFocus="TextBox_GotFocus_6" LostFocus="TextBox_LostFocus_6" Panel.ZIndex="1" Margin="5, 5, 5, 5" Text="" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  BorderThickness="0" FontSize="14" MaxLength="2" Grid.Row="2" Grid.Column="1"/>
+					<TextBlock Text="Max" Foreground="White" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="3"/>
+					<Border x:Name="MaxManaBox" Background="#464649" Panel.ZIndex="1" Margin="0" CornerRadius="8" BorderThickness="0" BorderBrush="#999999" Grid.Row="2" Grid.Column="3"/>
+					<TextBox x:Name="MaxManaBoxText" Background="#464649" GotFocus="TextBox_GotFocus_7" LostFocus="TextBox_LostFocus_7" Panel.ZIndex="1" Margin="5, 5, 5, 5" Text="" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  BorderThickness="0" FontSize="14" MaxLength="2" Grid.Row="2" Grid.Column="3"/>
+				</Grid>
+			</Border>
+		</Grid>
+	</Grid>
+</Page>
