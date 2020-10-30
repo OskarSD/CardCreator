@@ -62,6 +62,14 @@ namespace Card_Creator {
 		}
 
 		private void DeleteButton_Click(object sender, RoutedEventArgs e) {
+			Button b = sender as Button;
+			Type t;
+			foreach (Type type in types) {
+				if (type.Name == b.Name) {
+					t = type;
+				}
+			}
+			//delete t (selected type) from database
 			win.Types_Restart();
 		}
 
