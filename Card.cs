@@ -1,18 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel.DataAnnotations;
 
 namespace Card_Creator {
 	public class Card {
-		public Card(string name, string[] type, int life, int damage, int mana) {
+		public Card(string name, string typeName, string typeColor, int life, int damage, int mana) {
 			Name = name;
-			TypeName = type[0];
-			TypeColor = type[1];
+			TypeName = typeName;
+			TypeColor = typeColor;
 			Life = life;
 			Damage = damage;
 			Mana = mana;
 		}
+
+		[Key]
 		public string Name { get; set; }
+
 		public string TypeName { get; set; }
 		public string TypeColor { get; set; }
 		public int Life { get; set; }

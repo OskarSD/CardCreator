@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Card_Creator.Data;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
@@ -16,17 +19,45 @@ using System.Windows.Shapes;
 
 namespace Card_Creator {
 	public partial class TypeEditor : Page {
-		MainWindow win = (MainWindow)Application.Current.MainWindow;
+		MainWindow win;
+		CardCreatorContext context;
 		public TypeEditor() {
 			InitializeComponent();
+			win = (MainWindow)Application.Current.MainWindow;
 			win.SaveTypeButton.Click += SaveTypeButton_Click;
+			context = new CardCreatorContext();
 		}
+
+		
+		private void SaveType()
+        {
+			
+			Type type = CreateType();
+			context.Type.Add(type);
+
+			
+			context.SaveChanges();
+			type = null;
+			GC.Collect();
+			GC.WaitForPendingFinalizers();
+			
+			context.Entry(type).State = EntityState.Detached;
+			//context.ChangeTracker.CascadeDeleteTiming = CascadeTiming.OnSaveChanges;
+			//context.ChangeTracker.DeleteOrphansTiming = CascadeTiming.OnSaveChanges;
+			
+        }
 
 		//saves type to database
 		private void SaveTypeButton_Click(object sender, RoutedEventArgs e) {
 			if (!IsTypeValid()) {
 				DisplayPopup(false);
 			} else {
+				
+				
+
+				
+				SaveType();
+				
 				//send CreateType() to database
 				DisplayPopup(true);
 			}

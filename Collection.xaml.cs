@@ -17,12 +17,12 @@ using System.Windows.Shapes;
 namespace Card_Creator {
 	public partial class Collection : Page {
 		List<Card> cards;
-		public Collection() {
-			InitializeComponent();
-			string json = new WebClient().DownloadString("https://my-json-server.typicode.com/OskarSD/demo/card");
-			cards = JsonConvert.DeserializeObject<List<Card>>(json);
-			LoadCards();
-		}
+		//public Collection() {
+		//	InitializeComponent();
+		//	string json = new WebClient().DownloadString("https://my-json-server.typicode.com/OskarSD/demo/card");
+		//	cards = JsonConvert.DeserializeObject<List<Card>>(json);
+		//	//LoadCards();
+		//}
 
 		private void TextBox_GotFocus(object sender, RoutedEventArgs e) {
 			SearchBox.BorderThickness = new Thickness(2);
@@ -32,24 +32,24 @@ namespace Card_Creator {
 			SearchBox.BorderThickness = new Thickness(0);
 		}
 
-		private void LoadCards() {
-			WrapPanel p = new WrapPanel {
-				Orientation = Orientation.Horizontal,
-				HorizontalAlignment = HorizontalAlignment.Center,
-				ItemWidth = 220,
-				ItemHeight = 300
-			};
-			CardViewPanel.Children.Add(p);
-			foreach (Card card in cards) {
-				Border b = new Border {
-					Margin = new Thickness(5, 10, 5, 10),
-				};
-				p.Children.Add(b);
+		//private void LoadCards() {
+		//	WrapPanel p = new WrapPanel {
+		//		Orientation = Orientation.Horizontal,
+		//		HorizontalAlignment = HorizontalAlignment.Center,
+		//		ItemWidth = 220,
+		//		ItemHeight = 300
+		//	};
+		//	CardViewPanel.Children.Add(p);
+		//	foreach (Card card in cards) {
+		//		Border b = new Border {
+		//			Margin = new Thickness(5, 10, 5, 10),
+		//		};
+		//		p.Children.Add(b);
 
-				CardElement cardE = new CardElement(card);
-				b.Child = cardE.DisplayCard();
+		//		CardElement cardE = new CardElement(card);
+		//		b.Child = cardE.DisplayCard();
 
-			}
-		}
+		//	}
+		//}
 	}
 }

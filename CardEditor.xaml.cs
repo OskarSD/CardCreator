@@ -195,16 +195,16 @@ namespace Card_Creator {
 			}
 		}
 
-		private Card CreateCard(string name, string typeName, string typeColor, int life, int damage, int mana) {
-			string[] type = { typeName, typeColor };
-			Card card = new Card(name, type, life, damage, mana);
-			return card;
-		}
+		//private Card CreateCard(string name, string typeName, string typeColor, int life, int damage, int mana) {
+		//	string[] type = { typeName, typeColor };
+		//	Card card = new Card(name, type, life, damage, mana);
+		//	return card;
+		//}
 
 		//Saves card to database
-		public void SaveCard() {
-			Card card = CreateCard(name, typeName, typeColor, life, damage, mana);
-		}
+		//public void SaveCard() {
+		//	Card card = CreateCard(name, typeName, typeColor, life, damage, mana);
+		//}
 
 		//FINISH THIS
 		public bool IsCardValid(string typeName) {

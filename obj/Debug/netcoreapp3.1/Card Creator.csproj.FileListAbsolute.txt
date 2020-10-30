@@ -29,3 +29,70 @@ C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\obj\Debug\netcoreap
 C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\obj\Debug\netcoreapp3.1\CardEditor.g.cs
 C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\obj\Debug\netcoreapp3.1\CardEditor.baml
 C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\obj\Debug\netcoreapp3.1\Card Creator.csprojAssemblyReference.cache
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\Card Creator.exe
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\Card Creator.deps.json
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\Card Creator.runtimeconfig.json
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\Card Creator.runtimeconfig.dev.json
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\Card Creator.dll
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\Card Creator.pdb
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\obj\Debug\netcoreapp3.1\Card Creator.csprojAssemblyReference.cache
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\obj\Debug\netcoreapp3.1\CardEditor.g.cs
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\obj\Debug\netcoreapp3.1\Collection.g.cs
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\obj\Debug\netcoreapp3.1\Preview.g.cs
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\obj\Debug\netcoreapp3.1\TypeEditor.g.cs
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\obj\Debug\netcoreapp3.1\Types.g.cs
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\obj\Debug\netcoreapp3.1\App.g.cs
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\obj\Debug\netcoreapp3.1\Card Creator_MarkupCompile.cache
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\obj\Debug\netcoreapp3.1\Card Creator_MarkupCompile.lref
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\obj\Debug\netcoreapp3.1\CardEditor.baml
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\obj\Debug\netcoreapp3.1\Collection.baml
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\obj\Debug\netcoreapp3.1\MainWindow.baml
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\obj\Debug\netcoreapp3.1\Preview.baml
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\obj\Debug\netcoreapp3.1\TypeEditor.baml
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\obj\Debug\netcoreapp3.1\Types.baml
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\obj\Debug\netcoreapp3.1\Card Creator.g.resources
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\obj\Debug\netcoreapp3.1\Card Creator.AssemblyInfoInputs.cache
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\obj\Debug\netcoreapp3.1\Card Creator.AssemblyInfo.cs
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\obj\Debug\netcoreapp3.1\Card Creator.csproj.CoreCompileInputs.cache
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\obj\Debug\netcoreapp3.1\Card Creator.csproj.CopyComplete
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\obj\Debug\netcoreapp3.1\Card Creator.dll
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\obj\Debug\netcoreapp3.1\Card Creator.pdb
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\obj\Debug\netcoreapp3.1\Card Creator.genruntimeconfig.cache
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll

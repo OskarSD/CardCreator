@@ -23,7 +23,7 @@ namespace Card_Creator {
 
 		public MainWindow() {
 			InitializeComponent();
-			Main.Content = new Types();
+			Main.Content = new TypeEditor();
 			DisplayCardButtons();
 			DisplayTypeButtons();
 		}
