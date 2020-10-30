@@ -13,12 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Card_Creator
-{
-	/// <summary>
-	/// Interaction logic for Types.xaml
-	/// </summary>
+namespace Card_Creator {
 	public partial class Types : Page {
+		MainWindow win = (MainWindow)Application.Current.MainWindow;
 		List<Type> types;
 		public Types() {
 			InitializeComponent();
@@ -29,6 +26,7 @@ namespace Card_Creator
 		private void LoadTypes() {
 			WrapPanel p = new WrapPanel {
 				Orientation = Orientation.Horizontal,
+				HorizontalAlignment = HorizontalAlignment.Center,
 				ItemWidth = 260,
 				ItemHeight = 130
 			};
@@ -40,9 +38,36 @@ namespace Card_Creator
 				p.Children.Add(b);
 
 				TypeElement typeE = new TypeElement(type);
-				b.Child = typeE.DisplayType();
+				Button typeB = typeE.DisplayType();
+				typeB.Click += TypeB_Click;
+				b.Child = typeB;
 
 			}
+		}
+
+		private void TypeB_Click(object sender, RoutedEventArgs e) {
+			Button b = sender as Button;
+			foreach (Type type in types) {
+				if (type.Name == b.Name) {
+					PopupText.Text = type.Name;
+					break;
+				}
+			}
+			PopupBackground.Visibility = Visibility.Visible;
+			TypePopup.Visibility = Visibility.Visible;
+		}
+
+		private void CancelButton_Click(object sender, RoutedEventArgs e) {
+			HidePopup();
+		}
+
+		private void DeleteButton_Click(object sender, RoutedEventArgs e) {
+			win.Types_Restart();
+		}
+
+		private void HidePopup() {
+			PopupBackground.Visibility = Visibility.Hidden;
+			TypePopup.Visibility = Visibility.Hidden;
 		}
 	}
 }

@@ -106,6 +106,10 @@ namespace Card_Creator {
 			Main.Content = new TypeEditor();
 		}
 
+		public void Types_Restart() {
+			Main.Content = new Types();
+		}
+
 		public void TBTypeLeave(object sender, EventArgs e) {
 			if ((!TypeButton.IsMouseOver) &&
 				(!NewTypeButton.IsMouseOver) &&

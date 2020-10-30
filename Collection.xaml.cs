@@ -14,11 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Card_Creator
-{
-	/// <summary>
-	/// Interaction logic for Collection.xaml
-	/// </summary>
+namespace Card_Creator {
 	public partial class Collection : Page {
 		List<Card> cards;
 		public Collection() {

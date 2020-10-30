@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows;
@@ -14,8 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Card_Creator {
-	public partial class TypeEditor : Page
-	{
+	public partial class TypeEditor : Page {
 		MainWindow win = (MainWindow)Application.Current.MainWindow;
 		public TypeEditor() {
 			InitializeComponent();

@@ -9,7 +9,39 @@
       Title="Types">
 
 	<Grid>
-		<ScrollViewer x:Name="TypeView" VerticalScrollBarVisibility="Hidden" Grid.Row="0" Grid.Column="0">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="2*"/>
+			<RowDefinition Height="3*"/>
+			<RowDefinition Height="7*"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="3*"/>
+			<ColumnDefinition Width="2*"/>
+			<ColumnDefinition Width="3*"/>
+		</Grid.ColumnDefinitions>
+		<Border x:Name="PopupBackground" Panel.ZIndex="4" Opacity="0.5" Background="#242424" Visibility="Hidden" Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="3"/>
+		<Border x:Name="TypePopup" Background="#2a2a2a" Visibility="Hidden" Panel.ZIndex="5" Grid.Row="1" Grid.Column="1">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="1*"/>
+					<ColumnDefinition Width="2*"/>
+					<ColumnDefinition Width="1*"/>
+					<ColumnDefinition Width="2*"/>
+					<ColumnDefinition Width="1*"/>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="1*"/>
+					<RowDefinition Height="2*"/>
+					<RowDefinition Height="1*"/>
+					<RowDefinition Height="2*"/>
+					<RowDefinition Height="1*"/>
+				</Grid.RowDefinitions>
+				<TextBlock x:Name="PopupText" FontSize="24" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5"/>
+				<Button x:Name="CancelButton" Content="Cancel" Click="CancelButton_Click" FontSize="18" FontWeight="Light" Foreground="White" Background="#3b3b3b" BorderThickness="0" Grid.Column="1" Grid.Row="3"/>
+				<Button x:Name="DeleteButton" Content="Delete" Click="DeleteButton_Click" FontSize="18" FontWeight="Light" Foreground="White" Background="#3b3b3b" BorderThickness="0" Grid.Column="3" Grid.Row="3"/>
+			</Grid>
+		</Border>
+		<ScrollViewer x:Name="TypeView" VerticalScrollBarVisibility="Hidden" Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="3">
 			<StackPanel x:Name="TypeViewPanel">
 			</StackPanel>
 		</ScrollViewer>
