@@ -1,66 +1,38 @@
 ﻿using Card_Creator.Data;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Card_Creator {
 	public partial class TypeEditor : Page {
-		MainWindow win;
-		CardCreatorContext context;
+		MainWindow win = (MainWindow)Application.Current.MainWindow;
+		CardCreatorContext context = new CardCreatorContext();
 		public TypeEditor() {
 			InitializeComponent();
-			win = (MainWindow)Application.Current.MainWindow;
 			win.SaveTypeButton.Click += SaveTypeButton_Click;
-			context = new CardCreatorContext();
 		}
-
-		
-		private void SaveType()
-        {
-			
-			Type type = CreateType();
-			context.Type.Add(type);
-
-			
-			context.SaveChanges();
-			type = null;
-			GC.Collect();
-			GC.WaitForPendingFinalizers();
-			
-			context.Entry(type).State = EntityState.Detached;
-			//context.ChangeTracker.CascadeDeleteTiming = CascadeTiming.OnSaveChanges;
-			//context.ChangeTracker.DeleteOrphansTiming = CascadeTiming.OnSaveChanges;
-			
-        }
 
 		//saves type to database
 		private void SaveTypeButton_Click(object sender, RoutedEventArgs e) {
 			if (!IsTypeValid()) {
 				DisplayPopup(false);
 			} else {
-				
-				
-
-				
-				SaveType();
-				
-				//send CreateType() to database
+				context.Type.Add(CreateType());
+				context.SaveChanges();
 				DisplayPopup(true);
 			}
+		}
+
+		//removes popup
+		private void OKButton_Click(object sender, RoutedEventArgs e) {
+			RemovePopup();
+		}
+
+		//opens Types page
+		private void TypesButton_Click(object sender, RoutedEventArgs e) {
+			win.NavigateTypes();
 		}
 
 		//displays a popup depending on situation
@@ -74,21 +46,26 @@ namespace Card_Creator {
 			}
 		}
 
-		//opens Types page
-		private void ToTypes(object sender, RoutedEventArgs e) {
-			win.TypeEditor_ToTypes();
-		}
-
-		//removes popup
-		private void OKButton_Click(object sender, RoutedEventArgs e) {
-			RemovePopup();
-		}
-
 		//restarts page
 		private void RestartButton_Click(object sender, RoutedEventArgs e) {
-			win.TypeEditor_Restart();
+			Refresh();
 		}
 
+		//defaults all the input values
+		public void Refresh() {
+			RemovePopup();
+			NameBoxText.Text = "";
+			DescBoxText.Text = "";
+			ColorBoxText.Text = "#ffffff";
+			MinLifeBoxText.Text = "";
+			MaxLifeBoxText.Text = "";
+			MinDamageBoxText.Text = "";
+			MaxDamageBoxText.Text = "";
+			MinManaBoxText.Text = "";
+			MaxManaBoxText.Text = "";
+		}
+
+		//removes popups
 		private void RemovePopup() {
 			PopupBackground.Visibility = Visibility.Hidden;
 			ValidPopup.Visibility = Visibility.Hidden;
@@ -108,8 +85,9 @@ namespace Card_Creator {
 		//checks if all the user inputs are valid
 		private bool IsTypeValid() {
 			if ((String.IsNullOrWhiteSpace(NameBoxText.Text)) ||
+				(IsOnlyNumbers(NameBoxText.Text)) ||
 				(String.IsNullOrWhiteSpace(DescBoxText.Text)) ||
-				(String.IsNullOrWhiteSpace(ColorBoxText.Text)) ||
+				(IsOnlyNumbers(DescBoxText.Text)) ||
 				(!IsColorValid(ColorBoxText.Text)) ||
 				(!int.TryParse(MinLifeBoxText.Text, out _)) ||
 				(!int.TryParse(MaxLifeBoxText.Text, out _)) ||
@@ -121,6 +99,16 @@ namespace Card_Creator {
 				(!CompareNumbers(MinDamageBoxText.Text, MaxDamageBoxText.Text)) ||
 				(!CompareNumbers(MinManaBoxText.Text, MaxManaBoxText.Text))) {
 				return false;
+			}
+			return true;
+		}
+
+		//checks is string only contains numbers
+		private bool IsOnlyNumbers(string text) {
+			foreach (char c in text) {
+				if (c < '0' || c > '9') {
+					return false;
+				}
 			}
 			return true;
 		}
@@ -156,7 +144,7 @@ namespace Card_Creator {
 		private bool CompareNumbers(string first, string second) {
 			int f = Convert.ToInt32(first);
 			int s = Convert.ToInt32(second);
-			if (f < s) {
+			if (f <= s) {
 				return true;
 			} else {
 				return false;
@@ -164,67 +152,23 @@ namespace Card_Creator {
 		}
 
 		//this is used for the custom border/textbox combination on the page
-		private void TextBox_LostFocus(object sender, RoutedEventArgs e) {
-			NameBox.BorderThickness = new Thickness(0);
-		}
-		private void TextBox_GotFocus(object sender, RoutedEventArgs e) {
-			NameBox.BorderThickness = new Thickness(2);
-		}
-
-		private void TextBox_LostFocus_1(object sender, RoutedEventArgs e) {
-			DescBox.BorderThickness = new Thickness(0);
-		}
-		private void TextBox_GotFocus_1(object sender, RoutedEventArgs e) {
-			DescBox.BorderThickness = new Thickness(2);
-		}
-
-		private void TextBox_LostFocus_8(object sender, RoutedEventArgs e) {
-			ColorBox.BorderThickness = new Thickness(0);
-		}
-		private void TextBox_GotFocus_8(object sender, RoutedEventArgs e) {
-			ColorBox.BorderThickness = new Thickness(2);
-		}
-
-		private void TextBox_LostFocus_2(object sender, RoutedEventArgs e) {
-			MinLifeBox.BorderThickness = new Thickness(0);
-		}
-		private void TextBox_GotFocus_2(object sender, RoutedEventArgs e) {
-			MinLifeBox.BorderThickness = new Thickness(2);
-		}
-
-		private void TextBox_LostFocus_3(object sender, RoutedEventArgs e) {
-			MaxLifeBox.BorderThickness = new Thickness(0);
-		}
-		private void TextBox_GotFocus_3(object sender, RoutedEventArgs e) {
-			MaxLifeBox.BorderThickness = new Thickness(2);
-		}
-
-		private void TextBox_LostFocus_4(object sender, RoutedEventArgs e) {
-			MinDamageBox.BorderThickness = new Thickness(0);
-		}
-		private void TextBox_GotFocus_4(object sender, RoutedEventArgs e) {
-			MinDamageBox.BorderThickness = new Thickness(2);
-		}
-
-		private void TextBox_LostFocus_5(object sender, RoutedEventArgs e) {
-			MaxDamageBox.BorderThickness = new Thickness(0);
-		}
-		private void TextBox_GotFocus_5(object sender, RoutedEventArgs e) {
-			MaxDamageBox.BorderThickness = new Thickness(2);
-		}
-
-		private void TextBox_LostFocus_6(object sender, RoutedEventArgs e) {
-			MinManaBox.BorderThickness = new Thickness(0);
-		}
-		private void TextBox_GotFocus_6(object sender, RoutedEventArgs e) {
-			MinManaBox.BorderThickness = new Thickness(2);
-		}
-
-		private void TextBox_LostFocus_7(object sender, RoutedEventArgs e) {
-			MaxManaBox.BorderThickness = new Thickness(0);
-		}
-		private void TextBox_GotFocus_7(object sender, RoutedEventArgs e) {
-			MaxManaBox.BorderThickness = new Thickness(2);
-		}
+		private void TextBox_LostFocus(object sender, RoutedEventArgs e) { NameBox.BorderThickness = new Thickness(0); }
+		private void TextBox_GotFocus(object sender, RoutedEventArgs e) { NameBox.BorderThickness = new Thickness(2); }
+		private void TextBox_LostFocus_1(object sender, RoutedEventArgs e) { DescBox.BorderThickness = new Thickness(0); }
+		private void TextBox_GotFocus_1(object sender, RoutedEventArgs e) { DescBox.BorderThickness = new Thickness(2); }
+		private void TextBox_LostFocus_2(object sender, RoutedEventArgs e) { MinLifeBox.BorderThickness = new Thickness(0); }
+		private void TextBox_GotFocus_2(object sender, RoutedEventArgs e) { MinLifeBox.BorderThickness = new Thickness(2); }
+		private void TextBox_LostFocus_3(object sender, RoutedEventArgs e) { MaxLifeBox.BorderThickness = new Thickness(0); }
+		private void TextBox_GotFocus_3(object sender, RoutedEventArgs e) { MaxLifeBox.BorderThickness = new Thickness(2); }
+		private void TextBox_LostFocus_4(object sender, RoutedEventArgs e) { MinDamageBox.BorderThickness = new Thickness(0); }
+		private void TextBox_GotFocus_4(object sender, RoutedEventArgs e) { MinDamageBox.BorderThickness = new Thickness(2);}
+		private void TextBox_LostFocus_5(object sender, RoutedEventArgs e) { MaxDamageBox.BorderThickness = new Thickness(0); }
+		private void TextBox_GotFocus_5(object sender, RoutedEventArgs e) { MaxDamageBox.BorderThickness = new Thickness(2); }
+		private void TextBox_LostFocus_6(object sender, RoutedEventArgs e) { MinManaBox.BorderThickness = new Thickness(0); }
+		private void TextBox_GotFocus_6(object sender, RoutedEventArgs e) { MinManaBox.BorderThickness = new Thickness(2);  }
+		private void TextBox_LostFocus_7(object sender, RoutedEventArgs e) { MaxManaBox.BorderThickness = new Thickness(0); }
+		private void TextBox_GotFocus_7(object sender, RoutedEventArgs e) { MaxManaBox.BorderThickness = new Thickness(2); }
+		private void TextBox_LostFocus_8(object sender, RoutedEventArgs e) { ColorBox.BorderThickness = new Thickness(0); }
+		private void TextBox_GotFocus_8(object sender, RoutedEventArgs e) { ColorBox.BorderThickness = new Thickness(2); }
 	}
 }

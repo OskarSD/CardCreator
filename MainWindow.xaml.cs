@@ -20,40 +20,46 @@ using Newtonsoft.Json.Linq;
 namespace Card_Creator {
 
 	public partial class MainWindow : Window {
-
+		CardEditor cardEditor;
+		Collection collection;
+		TypeEditor typeEditor;
+		Types types;
 		public MainWindow() {
 			InitializeComponent();
-			Main.Content = new TypeEditor();
+			cardEditor = new CardEditor();
+			collection = new Collection();
+			typeEditor = new TypeEditor();
+			types = new Types();
+			Main.Content = typeEditor;
 			DisplayCardButtons();
 			DisplayTypeButtons();
 		}
 
-		public void TBDisplayCardClick(object sender, EventArgs e) {
-			DisplayCardButtons();
+		public void NavigateCardEditor() { Main.Content = cardEditor; }
+		public void NavigateTypeEditor() {
+			typeEditor.Refresh();
+			Main.Content = typeEditor;
+		}
+		public void NavigateCollection() { Main.Content = collection; }
+		public void NavigateTypes() {
+			types.RefreshPage();
+			Main.Content = types;
 		}
 
-		public void TBDisplayTypeClick(object sender, EventArgs e) {
-			DisplayTypeButtons();
-		}
+		public void TBDisplayCardClick(object sender, EventArgs e) { DisplayCardButtons(); }
 
-		public void TBTypesClick(object sender, EventArgs e) {
-			Main.Content = new Types();
-		}
+		public void TBDisplayTypeClick(object sender, EventArgs e) { DisplayTypeButtons(); }
 
-		public void TBCollectionClick(object sender, EventArgs e) {
-			Main.Content = new Collection();
-		}
+		public void TBTypesClick(object sender, EventArgs e) { NavigateTypes(); }
 
-		public void RemoveFocus(object sender, EventArgs e) {
-			MainGrid.Focus();
-		}
+		public void TBCollectionClick(object sender, EventArgs e) { NavigateCollection(); }
+
+		public void RemoveFocus(object sender, EventArgs e) { MainGrid.Focus(); }
+
+		public void SaveCardClick(object sender, EventArgs e) { DisplayCardButtons(); }
 
 		public void NewCardClick(object sender, EventArgs e) {
-			Main.Content = new CardEditor();
-			DisplayCardButtons();
-		}
-
-		public void SaveCardClick(object sender, EventArgs e) {
+			NavigateCardEditor();
 			DisplayCardButtons();
 		}
 
@@ -90,24 +96,12 @@ namespace Card_Creator {
 		}
 
 		public void NewTypeClick(object sender, EventArgs e) {
-			Main.Content = new TypeEditor();
+			NavigateTypeEditor();
 			DisplayTypeButtons();
 		}
 
 		public void SaveTypeClick(object sender, EventArgs e) {
 			DisplayTypeButtons();
-		}
-
-		public void TypeEditor_ToTypes() {
-			Main.Content = new Types();
-		}
-
-		public void TypeEditor_Restart() {
-			Main.Content = new TypeEditor();
-		}
-
-		public void Types_Restart() {
-			Main.Content = new Types();
 		}
 
 		public void TBTypeLeave(object sender, EventArgs e) {

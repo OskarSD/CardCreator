@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\SCHOOL\\PG5200 Toolsprogrammering\\Eksamen\\Project Folder\\CardCreator\\Card Creator.csproj": {}
+    "C:\\Users\\ostav\\Documents\\Visual Studio Projects\\Card Creator\\Card Creator.csproj": {}
   },
   "projects": {
-    "D:\\SCHOOL\\PG5200 Toolsprogrammering\\Eksamen\\Project Folder\\CardCreator\\Card Creator.csproj": {
+    "C:\\Users\\ostav\\Documents\\Visual Studio Projects\\Card Creator\\Card Creator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\SCHOOL\\PG5200 Toolsprogrammering\\Eksamen\\Project Folder\\CardCreator\\Card Creator.csproj",
+        "projectUniqueName": "C:\\Users\\ostav\\Documents\\Visual Studio Projects\\Card Creator\\Card Creator.csproj",
         "projectName": "Card Creator",
-        "projectPath": "D:\\SCHOOL\\PG5200 Toolsprogrammering\\Eksamen\\Project Folder\\CardCreator\\Card Creator.csproj",
-        "packagesPath": "C:\\Users\\eirik\\.nuget\\packages\\",
-        "outputPath": "D:\\SCHOOL\\PG5200 Toolsprogrammering\\Eksamen\\Project Folder\\CardCreator\\obj\\",
+        "projectPath": "C:\\Users\\ostav\\Documents\\Visual Studio Projects\\Card Creator\\Card Creator.csproj",
+        "packagesPath": "C:\\Users\\ostav\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ostav\\Documents\\Visual Studio Projects\\Card Creator\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\eirik\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ostav\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -80,7 +80,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

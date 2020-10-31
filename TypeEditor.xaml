@@ -43,7 +43,7 @@
 					<RowDefinition Height="1*"/>
 				</Grid.RowDefinitions>
 				<TextBlock Text="Type Saved" FontSize="24" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5"/>
-				<Button x:Name="TypesButton" Content="View Types" Click="ToTypes" FontSize="18" FontWeight="Light" Foreground="White" Background="#3b3b3b" BorderThickness="0" Grid.Column="1" Grid.Row="3"/>
+				<Button x:Name="TypesButton" Content="View Types" Click="TypesButton_Click" FontSize="18" FontWeight="Light" Foreground="White" Background="#3b3b3b" BorderThickness="0" Grid.Column="1" Grid.Row="3"/>
 				<Button x:Name="RestartButton" Content="New Type" Click="RestartButton_Click" FontSize="18" FontWeight="Light" Foreground="White" Background="#3b3b3b" BorderThickness="0" Grid.Column="3" Grid.Row="3"/>
 			</Grid>
 		</Border>
@@ -101,7 +101,7 @@
 			</Grid.ColumnDefinitions>
 			<TextBlock Text="Name" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Light" FontSize="20" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="3"/>
 			<Border x:Name="NameBox" Background="#464649" Panel.ZIndex="1" CornerRadius="8" BorderThickness="0" BorderBrush="#999999" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="5"/>
-			<TextBox x:Name="NameBoxText" Background="#464649" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Panel.ZIndex="1" Margin="5, 5, 5, 5" Text="" Foreground="White" BorderThickness="0" FontSize="16" MaxLength="20" VerticalContentAlignment="Center" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="5"/>
+			<TextBox x:Name="NameBoxText" Background="#464649" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Panel.ZIndex="1" Margin="5, 5, 5, 5" Text="" Foreground="White" BorderThickness="0" FontSize="16" MaxLength="16" VerticalContentAlignment="Center" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="5"/>
 			<TextBlock Text="Description" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Light" FontSize="20" Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="3"/>
 			<Border x:Name="DescBox" Background="#464649" Panel.ZIndex="1" CornerRadius="8" BorderThickness="0" BorderBrush="#999999" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="9"/>
 			<TextBox x:Name="DescBoxText" Background="#464649" GotFocus="TextBox_GotFocus_1" LostFocus="TextBox_LostFocus_1" Panel.ZIndex="1" Margin="5, 5, 5, 5" TextWrapping="Wrap" Text="" Foreground="White" BorderThickness="0" FontSize="16" MaxLength="60" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="9"/>
