@@ -16,13 +16,10 @@ using System.Windows.Shapes;
 
 namespace Card_Creator {
 	public partial class Collection : Page {
-		List<Card> cards;
-		//public Collection() {
-		//	InitializeComponent();
-		//	string json = new WebClient().DownloadString("https://my-json-server.typicode.com/OskarSD/demo/card");
-		//	cards = JsonConvert.DeserializeObject<List<Card>>(json);
-		//	//LoadCards();
-		//}
+		public Collection() {
+			InitializeComponent();
+			//LoadCards();
+		}
 
 		private void TextBox_GotFocus(object sender, RoutedEventArgs e) {
 			SearchBox.BorderThickness = new Thickness(2);
@@ -30,6 +27,13 @@ namespace Card_Creator {
 
 		private void TextBox_LostFocus(object sender, RoutedEventArgs e) {
 			SearchBox.BorderThickness = new Thickness(0);
+		}
+
+		//refreshes all elements on the page with new cards
+		public void RefreshPage() {
+			CardViewPanel.Children.Clear();
+			//LoadTypes();
+			//HidePopup();
 		}
 
 		//private void LoadCards() {

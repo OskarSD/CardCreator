@@ -30,17 +30,23 @@ namespace Card_Creator {
 			collection = new Collection();
 			typeEditor = new TypeEditor();
 			types = new Types();
-			Main.Content = typeEditor;
+			Main.Content = cardEditor;
 			DisplayCardButtons();
 			DisplayTypeButtons();
 		}
 
-		public void NavigateCardEditor() { Main.Content = cardEditor; }
+		public void NavigateCardEditor() {
+			cardEditor.Refresh();
+			Main.Content = cardEditor; 
+		}
 		public void NavigateTypeEditor() {
 			typeEditor.Refresh();
 			Main.Content = typeEditor;
 		}
-		public void NavigateCollection() { Main.Content = collection; }
+		public void NavigateCollection() {
+			collection.RefreshPage();
+			Main.Content = collection; 
+		}
 		public void NavigateTypes() {
 			types.RefreshPage();
 			Main.Content = types;

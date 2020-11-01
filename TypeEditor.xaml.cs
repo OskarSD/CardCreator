@@ -14,6 +14,15 @@ namespace Card_Creator {
 			win.SaveTypeButton.Click += SaveTypeButton_Click;
 		}
 
+		//removes popup
+		private void OKButton_Click(object sender, RoutedEventArgs e) { RemovePopup(); }
+
+		//opens Types page
+		private void TypesButton_Click(object sender, RoutedEventArgs e) { win.NavigateTypes(); }
+
+		//restarts page
+		private void RestartButton_Click(object sender, RoutedEventArgs e) { Refresh(); }
+
 		//saves type to database
 		private void SaveTypeButton_Click(object sender, RoutedEventArgs e) {
 			if (!IsTypeValid()) {
@@ -25,16 +34,6 @@ namespace Card_Creator {
 			}
 		}
 
-		//removes popup
-		private void OKButton_Click(object sender, RoutedEventArgs e) {
-			RemovePopup();
-		}
-
-		//opens Types page
-		private void TypesButton_Click(object sender, RoutedEventArgs e) {
-			win.NavigateTypes();
-		}
-
 		//displays a popup depending on situation
 		private void DisplayPopup(bool isValid) {
 			if (isValid) {
@@ -44,11 +43,6 @@ namespace Card_Creator {
 				PopupBackground.Visibility = Visibility.Visible;
 				InvalidPopup.Visibility = Visibility.Visible;
 			}
-		}
-
-		//restarts page
-		private void RestartButton_Click(object sender, RoutedEventArgs e) {
-			Refresh();
 		}
 
 		//defaults all the input values
