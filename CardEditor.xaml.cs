@@ -16,7 +16,7 @@ namespace Card_Creator {
 		MainWindow win = (MainWindow)Application.Current.MainWindow;
 		CardCreatorContext context = new CardCreatorContext();
 		string originalPath;
-		bool isEditingExistingCard = false, selectedType = false;
+		bool isEditingExistingCard = false, selectedType = false, checkName = true;
 
 		public CardEditor() {
 			InitializeComponent();
@@ -35,6 +35,7 @@ namespace Card_Creator {
 
 		//function used to edit existing cards
 		public void PremadeInputs(Card card) {
+			checkName = false;
 			LockName();
 			TypeRules(card.TypeName, false);
 			TypeButtonText.Text = card.TypeName;
@@ -71,7 +72,6 @@ namespace Card_Creator {
 
 		//checks if name is already being used
 		private bool IsNameInUse(string name) {
-			MessageBox.Show(name);
 			if (context.Card.Find(name) != null) {
 				if (name == context.Card.Find(name).Name) {
 					return true;
@@ -110,7 +110,7 @@ namespace Card_Creator {
 		private void SaveCardButton_Click(object sender, RoutedEventArgs e) {
 			if (!IsCardValid()) {
 				DisplayPopup(false, "");
-			} else if (IsNameInUse(NameBoxText.Text)) {
+			} else if (IsNameInUse(NameBoxText.Text) && checkName) {
 				DisplayPopup(false, "BadName");
 			} else {
 				SaveImage(originalPath);
@@ -127,7 +127,6 @@ namespace Card_Creator {
 					oldCard.Damage = newCard.Damage;
 					oldCard.Mana = newCard.Mana;
 					oldCard.PortraitImagePath = newCard.PortraitImagePath;
-
 				} else {
 					context.Card.Add(newCard);
 				}
@@ -377,6 +376,7 @@ namespace Card_Creator {
 
 		//defaults all the input values
 		public void Refresh(bool selected) {
+			checkName = true;
 			selectedType = selected;
 			NameCover.Visibility = Visibility.Hidden;
 			NameBoxText.IsReadOnly = false;
