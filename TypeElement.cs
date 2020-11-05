@@ -1,19 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
 namespace Card_Creator {
-	class TypeElement {
+	public class TypeElement {
 		public TypeElement(Type type) {
 			TypeI = type;
 		}
 		public Type TypeI { get; set; }
 		public Button DisplayType() {
+
+			//main button
+			string nameEdit = Regex.Replace(TypeI.Name, @"\s+", "");
 			Button button = new Button {
-				Name = TypeI.Name,
+				Name = nameEdit,
 				HorizontalContentAlignment = HorizontalAlignment.Stretch,
 				VerticalContentAlignment = VerticalAlignment.Stretch
 			};

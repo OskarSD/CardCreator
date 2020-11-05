@@ -13,7 +13,8 @@
 			<RowDefinition Height="4*"/>
 			<RowDefinition Height="6*"/>
 			<RowDefinition Height="2*"/>
-			<RowDefinition Height="12*"/>
+			<RowDefinition Height="8*"/>
+			<RowDefinition Height="4*"/>
 		</Grid.RowDefinitions>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="10*"/>
@@ -24,7 +25,7 @@
 			<ColumnDefinition Width="3*"/>
 			<ColumnDefinition Width="10*"/>
 		</Grid.ColumnDefinitions>
-		<Border x:Name="PopupBackground" Panel.ZIndex="4" Opacity="0.5" Background="#242424" Visibility="Hidden" Grid.RowSpan="4" Grid.ColumnSpan="7"/>
+		<Border x:Name="PopupBackground" Panel.ZIndex="4" Opacity="0.5" Background="#242424" Visibility="Hidden" Grid.RowSpan="5" Grid.ColumnSpan="7"/>
 		<Border x:Name="ValidPopup" Background="#2a2a2a" Visibility="Hidden" Panel.ZIndex="5" Grid.Row="1" Grid.RowSpan="2" Grid.Column="2" Grid.ColumnSpan="3">
 			<Grid>
 				<Grid.ColumnDefinitions>
@@ -69,13 +70,87 @@
 				<Button x:Name="OKButton" Content="OK" Click="OKButton_Click" FontSize="18" FontWeight="Light" Foreground="White" Background="#3b3b3b" BorderThickness="0" Grid.Column="2" Grid.Row="3"/>
 			</Grid>
 		</Border>
+		<Border x:Name="InvalidNamePopup" Background="#2a2a2a" Visibility="Hidden" Panel.ZIndex="5" Grid.Row="1" Grid.Column="3">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="2*"/>
+					<ColumnDefinition Width="3*"/>
+					<ColumnDefinition Width="4*"/>
+					<ColumnDefinition Width="3*"/>
+					<ColumnDefinition Width="2*"/>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="1*"/>
+					<RowDefinition Height="2*"/>
+					<RowDefinition Height="1*"/>
+					<RowDefinition Height="2*"/>
+					<RowDefinition Height="1*"/>
+				</Grid.RowDefinitions>
+				<TextBlock Text="Name is already in use" FontSize="24" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5"/>
+				<Button x:Name="OKButto2" Content="OK" Click="OKButton_Click" FontSize="18" FontWeight="Light" Foreground="White" Background="#3b3b3b" BorderThickness="0" Grid.Column="2" Grid.Row="3"/>
+			</Grid>
+		</Border>
+		<Border x:Name="BadImagePopup" Background="#2a2a2a" Visibility="Hidden" Panel.ZIndex="5" Grid.Row="1" Grid.Column="3">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="2*"/>
+					<ColumnDefinition Width="3*"/>
+					<ColumnDefinition Width="4*"/>
+					<ColumnDefinition Width="3*"/>
+					<ColumnDefinition Width="2*"/>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="1*"/>
+					<RowDefinition Height="2*"/>
+					<RowDefinition Height="1*"/>
+					<RowDefinition Height="2*"/>
+					<RowDefinition Height="1*"/>
+				</Grid.RowDefinitions>
+				<TextBlock Text="Image size is not valid" FontSize="24" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5"/>
+				<Button x:Name="OKButton2" Content="OK" Click="OKButton_Click" FontSize="18" FontWeight="Light" Foreground="White" Background="#3b3b3b" BorderThickness="0" Grid.Column="2" Grid.Row="3"/>
+			</Grid>
+		</Border>
 
-		<TextBlock x:Name="NameTest" Grid.Column="1" Grid.ColumnSpan="5" FontSize="10" Foreground="White"/>
-		<Image x:Name="ImageTest" Grid.Column="3" Grid.Row="1"/>
-		
-		
-		<Border Background="#202020" Grid.RowSpan="4"/>
-		<Grid Grid.RowSpan="4">
+		<Grid Panel.ZIndex="2" Grid.Row="1" Grid.RowSpan="3" Grid.Column="3">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="4*"/>
+				<RowDefinition Height="16*"/>
+				<RowDefinition Height="1*"/>
+				<RowDefinition Height="50*"/>
+				<RowDefinition Height="1*"/>
+				<RowDefinition Height="10*"/>
+				<RowDefinition Height="1*"/>
+				<RowDefinition Height="40*"/>
+				<RowDefinition Height="1*"/>
+				<RowDefinition Height="8*"/>
+				<RowDefinition Height="12*"/>
+				<RowDefinition Height="4*"/>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="1*"/>
+				<ColumnDefinition Width="4*"/>
+				<ColumnDefinition Width="20*"/>
+				<ColumnDefinition Width="30*"/>
+				<ColumnDefinition Width="20*"/>
+				<ColumnDefinition Width="30*"/>
+				<ColumnDefinition Width="20*"/>
+				<ColumnDefinition Width="4*"/>
+				<ColumnDefinition Width="1*"/>
+			</Grid.ColumnDefinitions>
+			<Image x:Name="BackgroundDisplay" Panel.ZIndex="3" Grid.RowSpan="12" Grid.ColumnSpan="9"/>
+			<TextBlock x:Name="NameDisplay" Foreground="White" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Light" Panel.ZIndex="5" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="7"/>
+			<Image x:Name="PortraitDisplay" VerticalAlignment="Center" HorizontalAlignment="Center" Panel.ZIndex="4" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="7"/>
+			<Border x:Name="TypeBorderDisplay" BorderThickness="2" Panel.ZIndex="5" Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="3">
+				<TextBlock x:Name="TypeDisplay" Foreground="White" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Light"/>
+			</Border>
+			<TextBlock x:Name="DescriptionDisplay" TextWrapping="Wrap" Foreground="White" FontSize="20" FontWeight="Light" HorizontalAlignment="Center" Panel.ZIndex="5" Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="5"/>
+			<TextBlock x:Name="LifeDisplay" Foreground="White" FontSize="24" FontWeight="Light" VerticalAlignment="Center" HorizontalAlignment="Center" Panel.ZIndex="5" Grid.Row="9" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2"/>
+			<TextBlock x:Name="DamageDisplay" Foreground="White" FontSize="24" FontWeight="Light" VerticalAlignment="Center" HorizontalAlignment="Center" Panel.ZIndex="5" Grid.Row="9" Grid.RowSpan="2" Grid.Column="6" Grid.ColumnSpan="2"/>
+			<TextBlock x:Name="ManaDisplay" Foreground="White" FontSize="20" FontWeight="Light" VerticalAlignment="Center" HorizontalAlignment="Center" Panel.ZIndex="5" Grid.Row="10" Grid.Column="4"/>
+		</Grid>
+
+		<Border Background="#202020" Grid.RowSpan="5"/>
+		<Grid Grid.RowSpan="5">
 			<Grid.RowDefinitions>
 				<RowDefinition Height="3*"/>
 				<RowDefinition Height="3*"/>
@@ -98,7 +173,8 @@
 				<ColumnDefinition Width="1*"/>
 				<ColumnDefinition Width="1*"/>
 			</Grid.ColumnDefinitions>
-			<TextBlock Text="Name" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Light" FontSize="20" Grid.Row="1" Grid.Column="2"/>
+			<Border x:Name="NameCover" Panel.ZIndex="4" Opacity="0.5" Background="#242424" Visibility="Hidden" Grid.Row="3" Grid.Column="2"/>
+			<TextBlock x:Name="NameText" Text="Name" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Light" FontSize="20" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"/>
 			<Border x:Name="NameBox" Background="#464649" Panel.ZIndex="1" CornerRadius="8" BorderThickness="0" BorderBrush="#999999" Grid.Row="3" Grid.Column="2"/>
 			<TextBox x:Name="NameBoxText" TextChanged="NameBoxText_TextChanged" Background="#464649" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Panel.ZIndex="1" Margin="5, 5, 5, 5" Text="" Foreground="White" BorderThickness="0" FontSize="16" MaxLength="20" VerticalContentAlignment="Center" Grid.Row="3" Grid.Column="2"/>
 			<TextBlock Text="Description" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Light" FontSize="20" Grid.Row="5" Grid.Column="2"/>
@@ -107,8 +183,8 @@
 			<TextBlock Text="Portrait" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Light" FontSize="20" Grid.Row="9" Grid.Column="2"/>
 			<Button x:Name="ImageSelector" Content="Select Image" Click="ImageSelector_Click" Panel.ZIndex="3" Margin="0" FontSize="18" FontWeight="Light" Foreground="White" Background="#3b3b3b" BorderThickness="0" Grid.Column="2" Grid.Row="11"/>
 		</Grid>
-		<Border Background="#202020" Grid.Column="6" Grid.RowSpan="4"/>
-		<Grid Grid.Column="6" Grid.RowSpan="4">
+		<Border Background="#202020" Grid.Column="6" Grid.RowSpan="5"/>
+		<Grid Grid.Column="6" Grid.RowSpan="5">
 			<Grid.RowDefinitions>
 				<RowDefinition Height="3*"/>
 				<RowDefinition Height="3*"/>
@@ -132,14 +208,13 @@
 				<ColumnDefinition Width="2*"/>
 			</Grid.ColumnDefinitions>
 			<TextBlock Text="Attributes" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Light" FontSize="30" Grid.Row="1" Grid.Column="3"/>
-
 			<Button x:Name="TypeButton" MouseLeave="TypeLeave" Click="TypeButtonClick" Panel.ZIndex="3" Margin="0" FontSize="16" FontWeight="Light" Foreground="White" Background="#3b3b3b" BorderThickness="0" Grid.Column="3" Grid.Row="3">
 				<StackPanel Orientation="Horizontal">
-					<TextBlock x:Name="TypeButtonText" Text="Type"/>
+					<TextBlock x:Name="TypeButtonText" Text="Type" FontSize="15"/>
 					<Image x:Name="TypeButtonImage" Height="14" Source="/Assets/DropDownIcon.png"/>
 				</StackPanel>
 			</Button>
-			<ScrollViewer x:Name="TypeScrollView" VerticalScrollBarVisibility="Hidden" Grid.Column="3" Grid.Row="4" Grid.RowSpan="7" Panel.ZIndex="0">
+			<ScrollViewer x:Name="TypeScrollView" VerticalScrollBarVisibility="Hidden" Grid.Column="3" Grid.Row="4" Grid.RowSpan="6" Panel.ZIndex="0">
 				<StackPanel x:Name="TypeStackPanel">
 				</StackPanel>
 			</ScrollViewer>
@@ -159,6 +234,7 @@
 						<ColumnDefinition Width="1*"/>
 						<ColumnDefinition Width="1*"/>
 					</Grid.ColumnDefinitions>
+					<Border x:Name="LifeCover" Panel.ZIndex="4" Opacity="0.5" Background="#242424" Visibility="Hidden" Grid.Row="3" Grid.Column="2"/>
 					<TextBlock x:Name="LifeText" Text="Life ()" Foreground="White" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"/>
 					<Border x:Name="LifeBox" Background="#464649" Panel.ZIndex="1" Margin="0" CornerRadius="8" BorderThickness="0" BorderBrush="#999999" Grid.Row="3" Grid.Column="2"/>
 					<TextBox x:Name="LifeBoxText" TextChanged="LifeBoxText_TextChanged" Background="#464649" GotFocus="TextBox_GotFocus_2" LostFocus="TextBox_LostFocus_2" Panel.ZIndex="1" Margin="5, 5, 5, 5" Text="" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  BorderThickness="0" FontSize="14" MaxLength="2" Grid.Row="3" Grid.Column="2"/>
@@ -180,6 +256,7 @@
 						<ColumnDefinition Width="1*"/>
 						<ColumnDefinition Width="1*"/>
 					</Grid.ColumnDefinitions>
+					<Border x:Name="DamageCover" Panel.ZIndex="4" Opacity="0.5" Background="#242424" Visibility="Hidden" Grid.Row="3" Grid.Column="2"/>
 					<TextBlock x:Name="DamageText" Text="Damage ()" Foreground="White" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"/>
 					<Border x:Name="DamageBox" Background="#464649" Panel.ZIndex="1" Margin="0" CornerRadius="8" BorderThickness="0" BorderBrush="#999999" Grid.Row="3" Grid.Column="2"/>
 					<TextBox x:Name="DamageBoxText" TextChanged="DamageBoxText_TextChanged" Background="#464649" GotFocus="TextBox_GotFocus_3" LostFocus="TextBox_LostFocus_3" Panel.ZIndex="1" Margin="5, 5, 5, 5" Text="" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  BorderThickness="0" FontSize="14" MaxLength="2" Grid.Row="3" Grid.Column="2"/>
@@ -201,6 +278,7 @@
 						<ColumnDefinition Width="1*"/>
 						<ColumnDefinition Width="1*"/>
 					</Grid.ColumnDefinitions>
+					<Border x:Name="ManaCover" Panel.ZIndex="4" Opacity="0.5" Background="#242424" Visibility="Hidden" Grid.Row="3" Grid.Column="2"/>
 					<TextBlock x:Name="ManaText" Text="Mana ()" Foreground="White" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"/>
 					<Border x:Name="ManaBox" Background="#464649" Panel.ZIndex="1" Margin="0" CornerRadius="8" BorderThickness="0" BorderBrush="#999999" Grid.Row="3" Grid.Column="2"/>
 					<TextBox x:Name="ManaBoxText" TextChanged="ManaBoxText_TextChanged" Background="#464649" GotFocus="TextBox_GotFocus_4" LostFocus="TextBox_LostFocus_4" Panel.ZIndex="1" Margin="5, 5, 5, 5" Text="" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  BorderThickness="0" FontSize="14" MaxLength="2" Grid.Row="3" Grid.Column="2"/>

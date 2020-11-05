@@ -79,15 +79,15 @@ namespace Card_Creator {
 		//checks if all the user inputs are valid
 		private bool IsTypeValid() {
 			if ((String.IsNullOrWhiteSpace(NameBoxText.Text)) ||
-				(IsOnlyNumbers(NameBoxText.Text)) ||
+				(StartWithNumber(NameBoxText.Text)) ||
 				(String.IsNullOrWhiteSpace(DescBoxText.Text)) ||
-				(IsOnlyNumbers(DescBoxText.Text)) ||
+				(StartWithNumber(DescBoxText.Text)) ||
 				(!IsColorValid(ColorBoxText.Text)) ||
-				(!int.TryParse(MinLifeBoxText.Text, out _)) ||
+				((!int.TryParse(MinLifeBoxText.Text, out _)) || (IsNegative(MinLifeBoxText.Text))) ||
+				((!int.TryParse(MinDamageBoxText.Text, out _)) || (IsNegative(MinDamageBoxText.Text))) ||
+				((!int.TryParse(MinManaBoxText.Text, out _)) || (IsNegative(MinManaBoxText.Text))) ||
 				(!int.TryParse(MaxLifeBoxText.Text, out _)) ||
-				(!int.TryParse(MinDamageBoxText.Text, out _)) ||
 				(!int.TryParse(MaxDamageBoxText.Text, out _)) ||
-				(!int.TryParse(MinManaBoxText.Text, out _)) ||
 				(!int.TryParse(MaxManaBoxText.Text, out _)) ||
 				(!CompareNumbers(MinLifeBoxText.Text, MaxLifeBoxText.Text)) ||
 				(!CompareNumbers(MinDamageBoxText.Text, MaxDamageBoxText.Text)) ||
@@ -97,14 +97,24 @@ namespace Card_Creator {
 			return true;
 		}
 
-		//checks is string only contains numbers
-		private bool IsOnlyNumbers(string text) {
-			foreach (char c in text) {
-				if (c < '0' || c > '9') {
-					return false;
-				}
+		//checks if string starts with a number
+		private bool StartWithNumber(string text) {
+			char firstChar = text[0];
+			if (int.TryParse(firstChar.ToString(), out _)) {
+				return true;
+			} else {
+				return false;
 			}
-			return true;
+		}
+
+		//casts string to int and then checks if it's is negative
+		private bool IsNegative(string text) {
+			int number = Int32.Parse(text);
+			if (number < 0) {
+				return true;
+			} else {
+				return false;
+			}
 		}
 
 		//displays color

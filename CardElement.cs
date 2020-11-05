@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Net.Http.Headers;
-using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace Card_Creator {
 	public class CardElement {
@@ -12,143 +11,169 @@ namespace Card_Creator {
 			CardI = card;
 		}
 		public Card CardI { get; set; }
-		public Border DisplayCard() {
-			Border b = new Border {
-				BorderThickness = new Thickness(2),
-				BorderBrush = Brushes.White
+		public Button DisplayCard() {
+
+			//main button
+			string nameEdit = Regex.Replace(CardI.Name, @"\s+", "");
+			Button mainButton = new Button {
+				Name = nameEdit,
+				HorizontalContentAlignment = HorizontalAlignment.Stretch,
+				VerticalContentAlignment = VerticalAlignment.Stretch
 			};
-			Grid g = new Grid();
-			Border nb = new Border {
-				BorderThickness = new Thickness(1),
-				BorderBrush = Brushes.White
+
+			//background image
+			ImageSource bgImage = new BitmapImage(new Uri(CardI.BackgroundImagePath));
+			Image backgroundImage = new Image {
+				Source = bgImage
 			};
-			Border ib = new Border {
-				BorderThickness = new Thickness(1),
-				BorderBrush = Brushes.White
+
+			//portrait image
+			ImageSource pImage = new BitmapImage(new Uri(CardI.PortraitImagePath));
+			Image portraitImage = new Image {
+				Source = pImage
 			};
-			Border tb = new Border {
-				Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(CardI.TypeColor)),
+
+			//name text
+			TextBlock nameText = new TextBlock {
+				Text = CardI.Name,
+				FontSize = 16,
+				FontWeight = FontWeights.Light,
+				Foreground = Brushes.White,
+				HorizontalAlignment = HorizontalAlignment.Center,
+				VerticalAlignment = VerticalAlignment.Center
+			};
+
+			//description text
+			TextBlock descriptionText = new TextBlock {
+				Text = CardI.Description,
+				FontSize = 14,
+				FontWeight = FontWeights.Light,
+				Foreground = Brushes.White,
+				HorizontalAlignment = HorizontalAlignment.Center,
+				TextWrapping = TextWrapping.Wrap
+			};
+
+			//type text
+			TextBlock typeText = new TextBlock {
+				Text = CardI.TypeName,
+				FontSize = 12,
+				FontWeight = FontWeights.Light,
+				Foreground = Brushes.White,
+				HorizontalAlignment = HorizontalAlignment.Center,
+				VerticalAlignment = VerticalAlignment.Center
+			};
+
+			//type border
+			Border typeBorder = new Border {
 				BorderThickness = new Thickness(1),
-				BorderBrush = Brushes.White,
+				BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom(CardI.TypeColor)),
 				CornerRadius = new CornerRadius(5, 5, 5, 5)
 			};
-			Border ab = new Border {
-				Margin = new Thickness(-1, 0, 0, -1),
-				BorderThickness = new Thickness(1),
-				BorderBrush = Brushes.White,
-				CornerRadius = new CornerRadius(0, 15, 0, 0)
-			};
-			Border lb = new Border {
-				Margin = new Thickness(0, 0, -1, -1),
-				BorderThickness = new Thickness(1),
-				BorderBrush = Brushes.White,
-				CornerRadius = new CornerRadius(15, 0, 0, 0)
-			};
-			Border mb = new Border {
-				Margin = new Thickness(0, 0, 0, -1),
-				BorderThickness = new Thickness(1),
-				BorderBrush = Brushes.White,
-				CornerRadius = new CornerRadius(5, 5, 0, 0)
-			};
-			TextBlock nbt = new TextBlock {
-				Text = CardI.Name,
-				FontSize = 14,
-				FontWeight = FontWeights.Light,
-				Foreground = Brushes.White,
-				HorizontalAlignment = HorizontalAlignment.Center,
-				VerticalAlignment = VerticalAlignment.Center
-			};
-			TextBlock tbt = new TextBlock {
-				Text = CardI.TypeName,
-				FontSize = 14,
-				FontWeight = FontWeights.Light,
-				Foreground = Brushes.White,
-				HorizontalAlignment = HorizontalAlignment.Center,
-				VerticalAlignment = VerticalAlignment.Center
-			};
-			TextBlock abt = new TextBlock {
-				Text = CardI.Damage.ToString(),
-				FontSize = 18,
+
+			//life text
+			TextBlock lifeText = new TextBlock {
+				Text = CardI.Life.ToString(),
+				FontSize = 12,
 				FontWeight = FontWeights.Bold,
 				Foreground = Brushes.White,
 				HorizontalAlignment = HorizontalAlignment.Center,
 				VerticalAlignment = VerticalAlignment.Center,
 			};
-			TextBlock lbt = new TextBlock {
-				Text = CardI.Life.ToString(),
-				FontSize = 18,
+
+			//damage text
+			TextBlock damageText = new TextBlock {
+				Text = CardI.Damage.ToString(),
+				FontSize = 12,
 				FontWeight = FontWeights.Bold,
 				Foreground = Brushes.White,
 				HorizontalAlignment = HorizontalAlignment.Center,
 				VerticalAlignment = VerticalAlignment.Center
 			};
-			TextBlock mbt = new TextBlock {
+
+			//mana text
+			TextBlock manaText = new TextBlock {
 				Text = CardI.Mana.ToString(),
-				FontSize = 16,
+				FontSize = 10,
 				FontWeight = FontWeights.Bold,
 				Foreground = Brushes.White,
 				HorizontalAlignment = HorizontalAlignment.Center,
 				VerticalAlignment = VerticalAlignment.Center
 			};
 
-			g.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
-			g.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(2, GridUnitType.Star) });
-			g.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(2, GridUnitType.Star) });
-			g.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
-			g.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(3, GridUnitType.Star) });
-			g.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
-			g.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(2, GridUnitType.Star) });
-			g.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(2, GridUnitType.Star) });
-			g.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
-			g.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
-			g.RowDefinitions.Add(new RowDefinition { Height = new GridLength(3, GridUnitType.Star) });
-			g.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
-			g.RowDefinitions.Add(new RowDefinition { Height = new GridLength(12, GridUnitType.Star) });
-			g.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
-			g.RowDefinitions.Add(new RowDefinition { Height = new GridLength(3, GridUnitType.Star) });
-			g.RowDefinitions.Add(new RowDefinition { Height = new GridLength(14, GridUnitType.Star) });
-			g.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
-			g.RowDefinitions.Add(new RowDefinition { Height = new GridLength(4, GridUnitType.Star) });
-			Grid.SetColumn(nb, 1);
-			Grid.SetColumnSpan(nb, 7);
-			Grid.SetRow(nb, 1);
-			Grid.SetColumn(ib, 1);
-			Grid.SetColumnSpan(ib, 7);
-			Grid.SetRow(ib, 3);
-			Grid.SetColumn(tb, 3);
-			Grid.SetColumnSpan(tb, 3);
-			Grid.SetRow(tb, 5);
-			//Grid.SetRow(d, 6);
-			Grid.SetColumn(ab, 0);
-			Grid.SetColumnSpan(ab, 2);
-			Grid.SetRow(ab, 7);
-			Grid.SetRowSpan(ab, 2);
-			Grid.SetColumn(lb, 7);
-			Grid.SetColumnSpan(lb, 2);
-			Grid.SetRow(lb, 7);
-			Grid.SetRowSpan(lb, 2);
-			Grid.SetColumn(mb, 4);
-			Grid.SetRow(mb, 8);
+			//main grid
+			Grid mainGrid = new Grid();
 
-			b.Child = g;
+			mainGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(2, GridUnitType.Star) });
+			mainGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(14, GridUnitType.Star) });
+			mainGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+			mainGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(50, GridUnitType.Star) });
+			mainGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+			mainGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(10, GridUnitType.Star) });
+			mainGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+			mainGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(40, GridUnitType.Star) });
+			mainGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+			mainGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(8, GridUnitType.Star) });
+			mainGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(4, GridUnitType.Star) });
+			mainGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(6, GridUnitType.Star) });
 
-			g.Children.Add(nb); //name border
-			g.Children.Add(ib); //image border
-			g.Children.Add(tb); //type border
-			//g.Children.Add(d); //description
-			g.Children.Add(ab); //attack border
-			g.Children.Add(lb); //life border
-			g.Children.Add(mb); //mana border
+			mainGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(2, GridUnitType.Star) });
+			mainGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(4, GridUnitType.Star) });
+			mainGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(20, GridUnitType.Star) });
+			mainGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(30, GridUnitType.Star) });
+			mainGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(20, GridUnitType.Star) });
+			mainGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(30, GridUnitType.Star) });
+			mainGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(20, GridUnitType.Star) });
+			mainGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(4, GridUnitType.Star) });
+			mainGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
 
-			nb.Child = nbt;
-			//ib.Child = Image;
-			tb.Child = tbt;
-			ab.Child = abt;
-			lb.Child = lbt;
-			mb.Child = mbt;
+			Grid.SetRowSpan(backgroundImage, 12);
+			Grid.SetColumnSpan(backgroundImage, 9);
+			Grid.SetRow(nameText, 1);
+			Grid.SetColumn(nameText, 1);
+			Grid.SetColumnSpan(nameText, 7);
+			Grid.SetRow(portraitImage, 3);
+			Grid.SetColumn(portraitImage, 1);
+			Grid.SetColumnSpan(portraitImage, 7);
+			Grid.SetRow(typeBorder, 5);
+			Grid.SetColumn(typeBorder, 3);
+			Grid.SetColumnSpan(typeBorder, 3);
+			Grid.SetRow(descriptionText, 7);
+			Grid.SetColumn(descriptionText, 2);
+			Grid.SetColumnSpan(descriptionText, 5);
+			Grid.SetRow(lifeText, 9);
+			Grid.SetRowSpan(lifeText, 2);
+			Grid.SetColumn(lifeText, 1);
+			Grid.SetColumnSpan(lifeText, 2);
+			Grid.SetRow(damageText, 9);
+			Grid.SetRowSpan(damageText, 2);
+			Grid.SetColumn(damageText, 6);
+			Grid.SetColumnSpan(damageText, 2);
+			Grid.SetRow(manaText, 10);
+			Grid.SetColumn(manaText, 4);
 
-			return b;
+			Panel.SetZIndex(backgroundImage, 0);
+			Panel.SetZIndex(portraitImage, 1);
+			Panel.SetZIndex(nameText, 2);
+			Panel.SetZIndex(typeBorder, 2);
+			Panel.SetZIndex(descriptionText, 2);
+			Panel.SetZIndex(lifeText, 2);
+			Panel.SetZIndex(damageText, 2);
+			Panel.SetZIndex(manaText, 2);
+
+			mainButton.Content = mainGrid;
+
+			typeBorder.Child = typeText;
+
+			mainGrid.Children.Add(backgroundImage);
+			mainGrid.Children.Add(nameText);
+			mainGrid.Children.Add(portraitImage);
+			mainGrid.Children.Add(typeBorder);
+			mainGrid.Children.Add(descriptionText);
+			mainGrid.Children.Add(lifeText);
+			mainGrid.Children.Add(damageText);
+			mainGrid.Children.Add(manaText);
+
+			return mainButton;
 		}
-
 	}
 }

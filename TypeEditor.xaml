@@ -101,7 +101,7 @@
 			</Grid.ColumnDefinitions>
 			<TextBlock Text="Name" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Light" FontSize="20" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="3"/>
 			<Border x:Name="NameBox" Background="#464649" Panel.ZIndex="1" CornerRadius="8" BorderThickness="0" BorderBrush="#999999" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="5"/>
-			<TextBox x:Name="NameBoxText" Background="#464649" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Panel.ZIndex="1" Margin="5, 5, 5, 5" Text="" Foreground="White" BorderThickness="0" FontSize="16" MaxLength="16" VerticalContentAlignment="Center" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="5"/>
+			<TextBox x:Name="NameBoxText" Background="#464649" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Panel.ZIndex="1" Margin="5, 5, 5, 5" Text="" Foreground="White" BorderThickness="0" FontSize="16" MaxLength="12" VerticalContentAlignment="Center" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="5"/>
 			<TextBlock Text="Description" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Light" FontSize="20" Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="3"/>
 			<Border x:Name="DescBox" Background="#464649" Panel.ZIndex="1" CornerRadius="8" BorderThickness="0" BorderBrush="#999999" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="9"/>
 			<TextBox x:Name="DescBoxText" Background="#464649" GotFocus="TextBox_GotFocus_1" LostFocus="TextBox_LostFocus_1" Panel.ZIndex="1" Margin="5, 5, 5, 5" TextWrapping="Wrap" Text="" Foreground="White" BorderThickness="0" FontSize="16" MaxLength="60" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="9"/>

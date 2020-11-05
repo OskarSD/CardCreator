@@ -7,56 +7,391 @@
       mc:Ignorable="d" 
       d:DesignHeight="691.2" d:DesignWidth="1280"
       Title="Collection" >
-	
+
 	<Grid x:Name="CollectionGrid">
 		<Grid.RowDefinitions>
+			<RowDefinition Height="4*"/>
+			<RowDefinition Height="11*"/>
+			<RowDefinition Height="13*"/>
 		</Grid.RowDefinitions>
 		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="15*"/>
-			<ColumnDefinition Width="5*"/>
+			<ColumnDefinition Width="10*"/>
+			<ColumnDefinition Width="3*"/>
+			<ColumnDefinition Width="2*"/>
+			<ColumnDefinition Width="10*"/>
+			<ColumnDefinition Width="2*"/>
+			<ColumnDefinition Width="3*"/>
+			<ColumnDefinition Width="10*"/>
 		</Grid.ColumnDefinitions>
-		<Border Background="#202020" Grid.Row="0" Grid.Column="1"/>
 
-		<ScrollViewer x:Name="CardView" VerticalScrollBarVisibility="Hidden" Grid.Row="0" Grid.Column="0">
+		<Border x:Name="PopupBackground" Panel.ZIndex="4" Opacity="0.5" Background="#242424" Visibility="Hidden" Grid.RowSpan="3" Grid.ColumnSpan="7"/>
+		<Border x:Name="CardPopup" Background="#2a2a2a" Visibility="Hidden" Panel.ZIndex="5" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="3*"/>
+					<ColumnDefinition Width="10*"/>
+					<ColumnDefinition Width="10*"/>
+					<ColumnDefinition Width="3*"/>
+					<ColumnDefinition Width="7*"/>
+					<ColumnDefinition Width="6*"/>
+					<ColumnDefinition Width="7*"/>
+					<ColumnDefinition Width="3*"/>
+					<ColumnDefinition Width="10*"/>
+					<ColumnDefinition Width="10*"/>
+					<ColumnDefinition Width="3*"/>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="1*"/>
+					<RowDefinition Height="4*"/>
+					<RowDefinition Height="1*"/>
+					<RowDefinition Height="4*"/>
+					<RowDefinition Height="1*"/>
+					<RowDefinition Height="4*"/>
+					<RowDefinition Height="1*"/>
+				</Grid.RowDefinitions>
+				<TextBlock x:Name="PopupText" FontSize="24" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="11"/>
+				<Button x:Name="CancelButton" Content="Cancel" Click="CancelButton_Click" FontSize="18" FontWeight="Light" Foreground="White" Background="#3b3b3b" BorderThickness="0" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="3"/>
+				<Button x:Name="PreviewButton" Content="Preview" Click="PreviewButton_Click" FontSize="18" FontWeight="Light" Foreground="White" Background="#3b3b3b" BorderThickness="0" Grid.Column="6" Grid.ColumnSpan="3" Grid.Row="3"/>
+				<Button x:Name="DeleteButton" Content="Delete" Click="DeleteButton_Click" FontSize="18" FontWeight="Light" Foreground="White" Background="#3b3b3b" BorderThickness="0" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="5"/>
+				<Button x:Name="EditButton" Content="Edit" Click="EditButton_Click" FontSize="18" FontWeight="Light" Foreground="White" Background="#3b3b3b" BorderThickness="0" Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="5"/>
+				<Button x:Name="ExportButton" Content="Export" Click="ExportButton_Click" FontSize="18" FontWeight="Light" Foreground="White" Background="#3b3b3b" BorderThickness="0" Grid.Column="8" Grid.ColumnSpan="2" Grid.Row="5"/>
+			</Grid>
+		</Border>
+
+		<Border Background="#202020" Grid.Row="0" Grid.Column="6" Grid.RowSpan="3"/>
+		<ScrollViewer x:Name="CardView" VerticalScrollBarVisibility="Hidden" Grid.Row="0" Grid.RowSpan="4" Grid.Column="0" Grid.ColumnSpan="6">
 			<StackPanel x:Name="CardViewPanel">
 			</StackPanel>
 		</ScrollViewer>
 
-		<Grid x:Name="FilterGrid" Grid.Row="0" Grid.Column="1">
+		<Grid x:Name="FilterGrid" Grid.Row="0" Grid.RowSpan="3" Grid.Column="6">
 			<Grid.RowDefinitions>
-				<RowDefinition Height="3*"/>
-				<RowDefinition Height="1*"/>
+				<RowDefinition Height="8*"/>
+				<RowDefinition Height="14*"/>
 				<RowDefinition Height="2*"/>
-				<RowDefinition Height="1*"/>
-				<RowDefinition Height="5*"/>
-				<RowDefinition Height="1*"/>
-				<RowDefinition Height="5*"/>
-				<RowDefinition Height="1*"/>
-				<RowDefinition Height="5*"/>
-				<RowDefinition Height="2*"/>
+				<RowDefinition Height="7*"/>
+				<RowDefinition Height="4*"/>
+				<RowDefinition Height="25*"/>
+				<RowDefinition Height="4*"/>
+				<RowDefinition Height="25*"/>
+				<RowDefinition Height="4*"/>
+				<RowDefinition Height="25*"/>
+				<RowDefinition Height="8*"/>
 			</Grid.RowDefinitions>
 			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="2*"/>
+				<ColumnDefinition Width="2*"/>
 				<ColumnDefinition Width="1*"/>
 				<ColumnDefinition Width="1*"/>
-				<ColumnDefinition Width="1*"/>
-				<ColumnDefinition Width="3*"/>
-				<ColumnDefinition Width="1*"/>
+				<ColumnDefinition Width="6*"/>
 				<ColumnDefinition Width="1*"/>
 				<ColumnDefinition Width="1*"/>
+				<ColumnDefinition Width="2*"/>
+				<ColumnDefinition Width="2*"/>
 			</Grid.ColumnDefinitions>
-			<Border x:Name="SearchBox" Background="#464649" Panel.ZIndex="1" Margin="0, 15, 0, 15" CornerRadius="8" BorderThickness="0" BorderBrush="#999999" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="3"/>
-			<TextBox Background="#464649" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Panel.ZIndex="1" Margin="2, 25, 2, 25" Text="" Foreground="White" BorderThickness="0" FontSize="16" MaxLength="20" VerticalContentAlignment="Center" Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2"/>
-			<Image Height="24" Width="24" Panel.ZIndex="2" Margin="0, 0, 0, 0" Source="/Assets/SearchIcon.png" Grid.Row="0" Grid.Column="2"/>
-			<Border Background="#262629" CornerRadius="8" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="5">
-				<Grid x:Name="ManaGrid">
-				</Grid>
-			</Border>
-			<Border Background="#262629" CornerRadius="8" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="5">
+			<Border x:Name="SearchBox" Background="#464649" Panel.ZIndex="1" Margin="0, 15, 0, 15" CornerRadius="8" BorderThickness="0" BorderBrush="#999999" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="5"/>
+			<TextBox x:Name="SearchFilter" TextChanged="SearchFilter_TextChanged" Background="#464649" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Panel.ZIndex="1" Margin="2, 25, 2, 25" Text="" Foreground="White" BorderThickness="0" FontSize="16" MaxLength="20" VerticalContentAlignment="Center" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="3"/>
+			<Image Height="24" Width="24" Panel.ZIndex="2" Margin="0, 0, 0, 0" Source="/Assets/SearchIcon.png" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2"/>
+			<Button x:Name="TypeButton" MouseLeave="TypeLeave" Click="TypeButtonClick" Panel.ZIndex="3" Margin="0" FontSize="16" FontWeight="Light" Foreground="White" Background="#3b3b3b" BorderThickness="0" Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="3">
+				<StackPanel Orientation="Horizontal">
+					<TextBlock x:Name="TypeButtonText" Text="Type" FontSize="15"/>
+					<Image x:Name="TypeButtonImage" Height="14" Source="/Assets/DropDownIcon.png"/>
+				</StackPanel>
+			</Button>
+			<ScrollViewer x:Name="TypeScrollView" VerticalScrollBarVisibility="Hidden" Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="4" Grid.RowSpan="6" Panel.ZIndex="0">
+				<StackPanel x:Name="TypeStackPanel">
+				</StackPanel>
+			</ScrollViewer>
+
+			<Border Background="#262629" CornerRadius="8" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="7">
 				<Grid x:Name="LifeGrid">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="5*"/>
+						<ColumnDefinition Width="18*"/>
+						<ColumnDefinition Width="3*"/>
+						<ColumnDefinition Width="18*"/>
+						<ColumnDefinition Width="3*"/>
+						<ColumnDefinition Width="18*"/>
+						<ColumnDefinition Width="3*"/>
+						<ColumnDefinition Width="18*"/>
+						<ColumnDefinition Width="3*"/>
+						<ColumnDefinition Width="18*"/>
+						<ColumnDefinition Width="5*"/>
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="1*"/>
+						<RowDefinition Height="5*"/>
+						<RowDefinition Height="1*"/>
+						<RowDefinition Height="7*"/>
+						<RowDefinition Height="3*"/>
+						<RowDefinition Height="7*"/>
+						<RowDefinition Height="2*"/>
+					</Grid.RowDefinitions>
+					<TextBlock Text="Life" Foreground="White"  FontSize="19" FontWeight="Light" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="7"/>
+					<Button x:Name="LifeZero" Click="Life_Click" Content="0" Background="#363434" BorderBrush="#b50000" BorderThickness="3" Foreground="White" FontWeight="Bold" FontSize="18" Grid.Row="3" Grid.Column="1">
+						<Button.Resources>
+							<Style TargetType="Border">
+								<Setter Property="CornerRadius" Value="15"/>
+							</Style>
+						</Button.Resources>
+					</Button>
+					<Button x:Name="LifeOne" Click="Life_Click" Content="1" Background="#363434" BorderBrush="#b50000" BorderThickness="3" Foreground="White" FontWeight="Bold" FontSize="18" Grid.Row="3" Grid.Column="3">
+						<Button.Resources>
+							<Style TargetType="Border">
+								<Setter Property="CornerRadius" Value="15"/>
+							</Style>
+						</Button.Resources>
+					</Button>
+					<Button x:Name="LifeTwo" Click="Life_Click" Content="2" Background="#363434" BorderBrush="#b50000" BorderThickness="3" Foreground="White" FontWeight="Bold" FontSize="18" Grid.Row="3" Grid.Column="5">
+						<Button.Resources>
+							<Style TargetType="Border">
+								<Setter Property="CornerRadius" Value="15"/>
+							</Style>
+						</Button.Resources>
+					</Button>
+					<Button x:Name="LifeThree" Click="Life_Click" Content="3" Background="#363434" BorderBrush="#b50000" BorderThickness="3" Foreground="White" FontWeight="Bold" FontSize="18" Grid.Row="3" Grid.Column="7">
+						<Button.Resources>
+							<Style TargetType="Border">
+								<Setter Property="CornerRadius" Value="15"/>
+							</Style>
+						</Button.Resources>
+					</Button>
+					<Button x:Name="LifeFour" Click="Life_Click" Content="4" Background="#363434" BorderBrush="#b50000" BorderThickness="3" Foreground="White" FontWeight="Bold" FontSize="18" Grid.Row="3" Grid.Column="9">
+						<Button.Resources>
+							<Style TargetType="Border">
+								<Setter Property="CornerRadius" Value="15"/>
+							</Style>
+						</Button.Resources>
+					</Button>
+					<Button x:Name="LifeFive" Click="Life_Click" Content="5" Background="#363434" BorderBrush="#b50000" BorderThickness="3" Foreground="White" FontWeight="Bold" FontSize="18" Grid.Row="5" Grid.Column="1">
+						<Button.Resources>
+							<Style TargetType="Border">
+								<Setter Property="CornerRadius" Value="15"/>
+							</Style>
+						</Button.Resources>
+					</Button>
+					<Button x:Name="LifeSix" Click="Life_Click" Content="6" Background="#363434" BorderBrush="#b50000" BorderThickness="3" Foreground="White" FontWeight="Bold" FontSize="18" Grid.Row="5" Grid.Column="3">
+						<Button.Resources>
+							<Style TargetType="Border">
+								<Setter Property="CornerRadius" Value="15"/>
+							</Style>
+						</Button.Resources>
+					</Button>
+					<Button x:Name="LifeSeven" Click="Life_Click" Content="7" Background="#363434" BorderBrush="#b50000" BorderThickness="3" Foreground="White" FontWeight="Bold" FontSize="18" Grid.Row="5" Grid.Column="5">
+						<Button.Resources>
+							<Style TargetType="Border">
+								<Setter Property="CornerRadius" Value="15"/>
+							</Style>
+						</Button.Resources>
+					</Button>
+					<Button x:Name="LifeEight" Click="Life_Click" Content="8" Background="#363434" BorderBrush="#b50000" BorderThickness="3" Foreground="White" FontWeight="Bold" FontSize="18" Grid.Row="5" Grid.Column="7">
+						<Button.Resources>
+							<Style TargetType="Border">
+								<Setter Property="CornerRadius" Value="15"/>
+							</Style>
+						</Button.Resources>
+					</Button>
+					<Button x:Name="LifeNinePlus" Click="Life_Click" Content="9+" Background="#363434" BorderBrush="#b50000" BorderThickness="3" Foreground="White" FontWeight="Bold" FontSize="18" Grid.Row="5" Grid.Column="9">
+						<Button.Resources>
+							<Style TargetType="Border">
+								<Setter Property="CornerRadius" Value="15"/>
+							</Style>
+						</Button.Resources>
+					</Button>
 				</Grid>
 			</Border>
-			<Border Background="#262629" CornerRadius="8" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="5">
-				<Grid x:Name="AttackGrid">
+			<Border Background="#262629" CornerRadius="8" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="7">
+				<Grid x:Name="DamageGrid">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="5*"/>
+						<ColumnDefinition Width="18*"/>
+						<ColumnDefinition Width="3*"/>
+						<ColumnDefinition Width="18*"/>
+						<ColumnDefinition Width="3*"/>
+						<ColumnDefinition Width="18*"/>
+						<ColumnDefinition Width="3*"/>
+						<ColumnDefinition Width="18*"/>
+						<ColumnDefinition Width="3*"/>
+						<ColumnDefinition Width="18*"/>
+						<ColumnDefinition Width="5*"/>
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="1*"/>
+						<RowDefinition Height="5*"/>
+						<RowDefinition Height="1*"/>
+						<RowDefinition Height="7*"/>
+						<RowDefinition Height="3*"/>
+						<RowDefinition Height="7*"/>
+						<RowDefinition Height="2*"/>
+					</Grid.RowDefinitions>
+					<TextBlock Text="Damage" Foreground="White" FontSize="19" FontWeight="Light" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="7"/>
+					<Button x:Name="DamageZero" Click="Damage_Click" Content="0" Background="#363434" BorderBrush="#b5a900" BorderThickness="3" Foreground="White" FontWeight="Bold" FontSize="18" Grid.Row="3" Grid.Column="1">
+						<Button.Resources>
+							<Style TargetType="Border">
+								<Setter Property="CornerRadius" Value="15"/>
+							</Style>
+						</Button.Resources>
+					</Button>
+					<Button x:Name="DamageOne" Click="Damage_Click" Content="1" Background="#363434" BorderBrush="#b5a900" BorderThickness="3" Foreground="White" FontWeight="Bold" FontSize="18" Grid.Row="3" Grid.Column="3">
+						<Button.Resources>
+							<Style TargetType="Border">
+								<Setter Property="CornerRadius" Value="15"/>
+							</Style>
+						</Button.Resources>
+					</Button>
+					<Button x:Name="DamageTwo" Click="Damage_Click" Content="2" Background="#363434" BorderBrush="#b5a900" BorderThickness="3" Foreground="White" FontWeight="Bold" FontSize="18" Grid.Row="3" Grid.Column="5">
+						<Button.Resources>
+							<Style TargetType="Border">
+								<Setter Property="CornerRadius" Value="15"/>
+							</Style>
+						</Button.Resources>
+					</Button>
+					<Button x:Name="DamageThree" Click="Damage_Click" Content="3" Background="#363434" BorderBrush="#b5a900" BorderThickness="3" Foreground="White" FontWeight="Bold" FontSize="18" Grid.Row="3" Grid.Column="7">
+						<Button.Resources>
+							<Style TargetType="Border">
+								<Setter Property="CornerRadius" Value="15"/>
+							</Style>
+						</Button.Resources>
+					</Button>
+					<Button x:Name="DamageFour" Click="Damage_Click" Content="4" Background="#363434" BorderBrush="#b5a900" BorderThickness="3" Foreground="White" FontWeight="Bold" FontSize="18" Grid.Row="3" Grid.Column="9">
+						<Button.Resources>
+							<Style TargetType="Border">
+								<Setter Property="CornerRadius" Value="15"/>
+							</Style>
+						</Button.Resources>
+					</Button>
+					<Button x:Name="DamageFive" Click="Damage_Click" Content="5" Background="#363434" BorderBrush="#b5a900" BorderThickness="3" Foreground="White" FontWeight="Bold" FontSize="18" Grid.Row="5" Grid.Column="1">
+						<Button.Resources>
+							<Style TargetType="Border">
+								<Setter Property="CornerRadius" Value="15"/>
+							</Style>
+						</Button.Resources>
+					</Button>
+					<Button x:Name="DamageSix" Click="Damage_Click" Content="6" Background="#363434" BorderBrush="#b5a900" BorderThickness="3" Foreground="White" FontWeight="Bold" FontSize="18" Grid.Row="5" Grid.Column="3">
+						<Button.Resources>
+							<Style TargetType="Border">
+								<Setter Property="CornerRadius" Value="15"/>
+							</Style>
+						</Button.Resources>
+					</Button>
+					<Button x:Name="DamageSeven" Click="Damage_Click" Content="7" Background="#363434" BorderBrush="#b5a900" BorderThickness="3" Foreground="White" FontWeight="Bold" FontSize="18" Grid.Row="5" Grid.Column="5">
+						<Button.Resources>
+							<Style TargetType="Border">
+								<Setter Property="CornerRadius" Value="15"/>
+							</Style>
+						</Button.Resources>
+					</Button>
+					<Button x:Name="DamageEight" Click="Damage_Click" Content="8" Background="#363434" BorderBrush="#b5a900" BorderThickness="3" Foreground="White" FontWeight="Bold" FontSize="18" Grid.Row="5" Grid.Column="7">
+						<Button.Resources>
+							<Style TargetType="Border">
+								<Setter Property="CornerRadius" Value="15"/>
+							</Style>
+						</Button.Resources>
+					</Button>
+					<Button x:Name="DamageNinePlus" Click="Damage_Click" Content="9+" Background="#363434" BorderBrush="#b5a900" BorderThickness="3" Foreground="White" FontWeight="Bold" FontSize="18" Grid.Row="5" Grid.Column="9">
+						<Button.Resources>
+							<Style TargetType="Border">
+								<Setter Property="CornerRadius" Value="15"/>
+							</Style>
+						</Button.Resources>
+					</Button>
+				</Grid>
+			</Border>
+			<Border Background="#262629" CornerRadius="8" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="7">
+				<Grid x:Name="ManaGrid">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="5*"/>
+						<ColumnDefinition Width="18*"/>
+						<ColumnDefinition Width="3*"/>
+						<ColumnDefinition Width="18*"/>
+						<ColumnDefinition Width="3*"/>
+						<ColumnDefinition Width="18*"/>
+						<ColumnDefinition Width="3*"/>
+						<ColumnDefinition Width="18*"/>
+						<ColumnDefinition Width="3*"/>
+						<ColumnDefinition Width="18*"/>
+						<ColumnDefinition Width="5*"/>
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="1*"/>
+						<RowDefinition Height="5*"/>
+						<RowDefinition Height="1*"/>
+						<RowDefinition Height="7*"/>
+						<RowDefinition Height="3*"/>
+						<RowDefinition Height="7*"/>
+						<RowDefinition Height="2*"/>
+					</Grid.RowDefinitions>
+					<TextBlock Text="Mana" Foreground="White" FontSize="19" FontWeight="Light" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="7"/>
+					<Button x:Name="ManaZero" Click="Mana_Click" Content="0" Background="#363434" BorderBrush="#0039b5" BorderThickness="3" Foreground="White" FontWeight="Bold" FontSize="18" Grid.Row="3" Grid.Column="1">
+						<Button.Resources>
+							<Style TargetType="Border">
+								<Setter Property="CornerRadius" Value="15"/>
+							</Style>
+						</Button.Resources>
+					</Button>
+					<Button x:Name="ManaOne" Click="Mana_Click" Content="1" Background="#363434" BorderBrush="#0039b5" BorderThickness="3" Foreground="White" FontWeight="Bold" FontSize="18" Grid.Row="3" Grid.Column="3">
+						<Button.Resources>
+							<Style TargetType="Border">
+								<Setter Property="CornerRadius" Value="15"/>
+							</Style>
+						</Button.Resources>
+					</Button>
+					<Button x:Name="ManaTwo" Click="Mana_Click" Content="2" Background="#363434" BorderBrush="#0039b5" BorderThickness="3" Foreground="White" FontWeight="Bold" FontSize="18" Grid.Row="3" Grid.Column="5">
+						<Button.Resources>
+							<Style TargetType="Border">
+								<Setter Property="CornerRadius" Value="15"/>
+							</Style>
+						</Button.Resources>
+					</Button>
+					<Button x:Name="ManaThree" Click="Mana_Click" Content="3" Background="#363434" BorderBrush="#0039b5" BorderThickness="3" Foreground="White" FontWeight="Bold" FontSize="18" Grid.Row="3" Grid.Column="7">
+						<Button.Resources>
+							<Style TargetType="Border">
+								<Setter Property="CornerRadius" Value="15"/>
+							</Style>
+						</Button.Resources>
+					</Button>
+					<Button x:Name="ManaFour" Click="Mana_Click" Content="4" Background="#363434" BorderBrush="#0039b5" BorderThickness="3" Foreground="White" FontWeight="Bold" FontSize="18" Grid.Row="3" Grid.Column="9">
+						<Button.Resources>
+							<Style TargetType="Border">
+								<Setter Property="CornerRadius" Value="15"/>
+							</Style>
+						</Button.Resources>
+					</Button>
+					<Button x:Name="ManaFive" Click="Mana_Click" Content="5" Background="#363434" BorderBrush="#0039b5" BorderThickness="3" Foreground="White" FontWeight="Bold" FontSize="18" Grid.Row="5" Grid.Column="1">
+						<Button.Resources>
+							<Style TargetType="Border">
+								<Setter Property="CornerRadius" Value="15"/>
+							</Style>
+						</Button.Resources>
+					</Button>
+					<Button x:Name="ManaSix" Click="Mana_Click" Content="6" Background="#363434" BorderBrush="#0039b5" BorderThickness="3" Foreground="White" FontWeight="Bold" FontSize="18" Grid.Row="5" Grid.Column="3">
+						<Button.Resources>
+							<Style TargetType="Border">
+								<Setter Property="CornerRadius" Value="15"/>
+							</Style>
+						</Button.Resources>
+					</Button>
+					<Button x:Name="ManaSeven" Click="Mana_Click" Content="7" Background="#363434" BorderBrush="#0039b5" BorderThickness="3" Foreground="White" FontWeight="Bold" FontSize="18" Grid.Row="5" Grid.Column="5">
+						<Button.Resources>
+							<Style TargetType="Border">
+								<Setter Property="CornerRadius" Value="15"/>
+							</Style>
+						</Button.Resources>
+					</Button>
+					<Button x:Name="ManaEight" Click="Mana_Click" Content="8" Background="#363434" BorderBrush="#0039b5" BorderThickness="3" Foreground="White" FontWeight="Bold" FontSize="18" Grid.Row="5" Grid.Column="7">
+						<Button.Resources>
+							<Style TargetType="Border">
+								<Setter Property="CornerRadius" Value="15"/>
+							</Style>
+						</Button.Resources>
+					</Button>
+					<Button x:Name="ManaNinePlus" Click="Mana_Click" Content="9+" Background="#363434" BorderBrush="#0039b5" BorderThickness="3" Foreground="White" FontWeight="Bold" FontSize="18" Grid.Row="5" Grid.Column="9">
+						<Button.Resources>
+							<Style TargetType="Border">
+								<Setter Property="CornerRadius" Value="15"/>
+							</Style>
+						</Button.Resources>
+					</Button>
 				</Grid>
 			</Border>
 		</Grid>

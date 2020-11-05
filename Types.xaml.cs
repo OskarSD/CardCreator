@@ -1,4 +1,5 @@
 ﻿using Card_Creator.Data;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -36,12 +37,11 @@ namespace Card_Creator {
 
 		//getting the correct type when selecting
 		private void TypeB_Click(object sender, RoutedEventArgs e) {
-			
 			var types = context.Type;
-
 			Button b = sender as Button;
 			foreach (Type type in types) {
-				if (type.Name == b.Name) {
+				string nameEdit = Regex.Replace(type.Name, @"\s+", "");
+				if (nameEdit == b.Name) {
 					PopupText.Text = type.Name;
 					break;
 				}
@@ -55,7 +55,6 @@ namespace Card_Creator {
 
 		//deletes selected type from database
 		private void DeleteButton_Click(object sender, RoutedEventArgs e) {
-			var types = context.Type;
 			Type type = context.Type.Find(PopupText.Text);
 			context.Type.Remove(type);
 			context.SaveChanges();

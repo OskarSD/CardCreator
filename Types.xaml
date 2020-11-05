@@ -19,6 +19,7 @@
 			<ColumnDefinition Width="2*"/>
 			<ColumnDefinition Width="3*"/>
 		</Grid.ColumnDefinitions>
+		
 		<Border x:Name="PopupBackground" Panel.ZIndex="4" Opacity="0.5" Background="#242424" Visibility="Hidden" Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="3"/>
 		<Border x:Name="TypePopup" Background="#2a2a2a" Visibility="Hidden" Panel.ZIndex="5" Grid.Row="1" Grid.Column="1">
 			<Grid>
@@ -41,9 +42,11 @@
 				<Button x:Name="DeleteButton" Content="Delete" Click="DeleteButton_Click" FontSize="18" FontWeight="Light" Foreground="White" Background="#3b3b3b" BorderThickness="0" Grid.Column="3" Grid.Row="3"/>
 			</Grid>
 		</Border>
+
 		<ScrollViewer x:Name="TypeView" VerticalScrollBarVisibility="Hidden" Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="3">
 			<StackPanel x:Name="TypeViewPanel">
 			</StackPanel>
 		</ScrollViewer>
+
 	</Grid>
 </Page>

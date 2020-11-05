@@ -9,19 +9,179 @@
       Title="Preview">
 
 	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="15*"/>
+			<ColumnDefinition Width="10*"/>
+			<ColumnDefinition Width="5*"/>
+			<ColumnDefinition Width="10*"/>
+		</Grid.ColumnDefinitions>
 		<Grid.RowDefinitions>
-			<RowDefinition Height="1*"/>
-			<RowDefinition Height="1*"/>
-			<RowDefinition Height="1*"/>
+			<RowDefinition Height="4*"/>
+			<RowDefinition Height="6*"/>
+			<RowDefinition Height="10*"/>
+			<RowDefinition Height="4*"/>
 		</Grid.RowDefinitions>
-		<Border HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0">
-			<TextBlock x:Name="text1" FontSize="30" Foreground="White"/>
+		<Border x:Name="InvalidNamePopup" Background="#2a2a2a" Visibility="Hidden" Panel.ZIndex="5" Grid.Row="1" Grid.Column="1">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="2*"/>
+					<ColumnDefinition Width="3*"/>
+					<ColumnDefinition Width="4*"/>
+					<ColumnDefinition Width="3*"/>
+					<ColumnDefinition Width="2*"/>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="2*"/>
+					<RowDefinition Height="4*"/>
+					<RowDefinition Height="4*"/>
+					<RowDefinition Height="1*"/>
+					<RowDefinition Height="6*"/>
+					<RowDefinition Height="2*"/>
+				</Grid.RowDefinitions>
+				<TextBlock Text="Can't save beacuse the name is" FontSize="15" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5"/>
+				<TextBlock Text="already being used by another card" FontSize="15" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5"/>
+				<Button x:Name="OKButton" Content="OK" Click="OKButton_Click" FontSize="18" FontWeight="Light" Foreground="White" Background="#3b3b3b" BorderThickness="0" Grid.Column="2" Grid.Row="4"/>
+			</Grid>
 		</Border>
-		<Border HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">
-			<TextBlock x:Name="text2" FontSize="30" Foreground="White"/>
+		<Border x:Name="SavePopup" Background="#2a2a2a" Visibility="Hidden" Panel.ZIndex="5" Grid.Row="1" Grid.Column="1">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="2*"/>
+					<ColumnDefinition Width="3*"/>
+					<ColumnDefinition Width="4*"/>
+					<ColumnDefinition Width="3*"/>
+					<ColumnDefinition Width="2*"/>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="1*"/>
+					<RowDefinition Height="2*"/>
+					<RowDefinition Height="1*"/>
+					<RowDefinition Height="2*"/>
+					<RowDefinition Height="1*"/>
+				</Grid.RowDefinitions>
+				<TextBlock Text="Card saved" FontSize="24" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5"/>
+				<Button x:Name="SavedButton" Content="OK" Click="CollectionButton_Click" FontSize="18" FontWeight="Light" Foreground="White" Background="#3b3b3b" BorderThickness="0" Grid.Column="2" Grid.Row="3"/>
+			</Grid>
 		</Border>
-		<Border HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2">
-			<TextBlock x:Name="text3" FontSize="30" Foreground="White"/>
+		<Border x:Name="DeletePopup" Background="#2a2a2a" Visibility="Hidden" Panel.ZIndex="5" Grid.Row="1" Grid.Column="1">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="2*"/>
+					<ColumnDefinition Width="3*"/>
+					<ColumnDefinition Width="4*"/>
+					<ColumnDefinition Width="3*"/>
+					<ColumnDefinition Width="2*"/>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="1*"/>
+					<RowDefinition Height="2*"/>
+					<RowDefinition Height="1*"/>
+					<RowDefinition Height="2*"/>
+					<RowDefinition Height="1*"/>
+				</Grid.RowDefinitions>
+				<TextBlock Text="Card deleted" FontSize="24" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5"/>
+				<Button x:Name="DeletionButton" Content="OK" Click="CollectionButton_Click" FontSize="18" FontWeight="Light" Foreground="White" Background="#3b3b3b" BorderThickness="0" Grid.Column="2" Grid.Row="3"/>
+			</Grid>
 		</Border>
+		<Grid Panel.ZIndex="2" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="4*"/>
+				<RowDefinition Height="16*"/>
+				<RowDefinition Height="1*"/>
+				<RowDefinition Height="50*"/>
+				<RowDefinition Height="1*"/>
+				<RowDefinition Height="10*"/>
+				<RowDefinition Height="1*"/>
+				<RowDefinition Height="40*"/>
+				<RowDefinition Height="1*"/>
+				<RowDefinition Height="8*"/>
+				<RowDefinition Height="12*"/>
+				<RowDefinition Height="4*"/>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="1*"/>
+				<ColumnDefinition Width="4*"/>
+				<ColumnDefinition Width="20*"/>
+				<ColumnDefinition Width="30*"/>
+				<ColumnDefinition Width="20*"/>
+				<ColumnDefinition Width="30*"/>
+				<ColumnDefinition Width="20*"/>
+				<ColumnDefinition Width="4*"/>
+				<ColumnDefinition Width="1*"/>
+			</Grid.ColumnDefinitions>
+			<Image x:Name="BackgroundDisplay" Panel.ZIndex="3" Grid.RowSpan="12" Grid.ColumnSpan="9"/>
+			<TextBlock x:Name="NameDisplay" Foreground="White" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Light" Panel.ZIndex="5" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="7"/>
+			<Image x:Name="PortraitDisplay" VerticalAlignment="Center" HorizontalAlignment="Center" Panel.ZIndex="4" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="7"/>
+			<Border x:Name="TypeBorderDisplay" BorderThickness="2" Panel.ZIndex="5" Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="3">
+				<TextBlock x:Name="TypeDisplay" Foreground="White" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Light"/>
+			</Border>
+			<TextBlock x:Name="DescriptionDisplay" TextWrapping="Wrap" Foreground="White" FontSize="20" FontWeight="Light" HorizontalAlignment="Center" Panel.ZIndex="5" Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="5"/>
+			<TextBlock x:Name="LifeDisplay" Foreground="White" FontSize="24" FontWeight="Light" VerticalAlignment="Center" HorizontalAlignment="Center" Panel.ZIndex="5" Grid.Row="9" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2"/>
+			<TextBlock x:Name="DamageDisplay" Foreground="White" FontSize="24" FontWeight="Light" VerticalAlignment="Center" HorizontalAlignment="Center" Panel.ZIndex="5" Grid.Row="9" Grid.RowSpan="2" Grid.Column="6" Grid.ColumnSpan="2"/>
+			<TextBlock x:Name="ManaDisplay" Foreground="White" FontSize="20" FontWeight="Light" VerticalAlignment="Center" HorizontalAlignment="Center" Panel.ZIndex="5" Grid.Row="10" Grid.Column="4"/>
+		</Grid>
+		<Border Background="#202020" Grid.Column="3" Grid.RowSpan="4"/>
+		<Grid x:Name="DatabaseGrid" Visibility="Hidden" Panel.ZIndex="3" Grid.Column="3" Grid.RowSpan="4">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="10*"/>
+				<RowDefinition Height="12*"/>
+				<RowDefinition Height="6*"/>
+				<RowDefinition Height="8*"/>
+				<RowDefinition Height="1*"/>
+				<RowDefinition Height="10*"/>
+				<RowDefinition Height="6*"/>
+				<RowDefinition Height="8*"/>
+				<RowDefinition Height="1*"/>
+				<RowDefinition Height="10*"/>
+				<RowDefinition Height="6*"/>
+				<RowDefinition Height="8*"/>
+				<RowDefinition Height="1*"/>
+				<RowDefinition Height="10*"/>
+				<RowDefinition Height="26*"/>
+				<RowDefinition Height="8*"/>
+				<RowDefinition Height="1*"/>
+				<RowDefinition Height="10*"/>
+				<RowDefinition Height="10*"/>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="4*"/>
+				<ColumnDefinition Width="10*"/>
+				<ColumnDefinition Width="4*"/>
+			</Grid.ColumnDefinitions>
+			<TextBlock Text="Existing Card" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Light" FontSize="30" Grid.ColumnSpan="3" Grid.Row="1"/>
+			<TextBlock Text="Export Card" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Light" FontSize="20" Grid.ColumnSpan="3" Grid.Row="3"/>
+			<Button x:Name="ExportButton" Content="Export" Click="ExportButton_Click" Panel.ZIndex="3" FontSize="18" FontWeight="Light" Foreground="White" Background="#3b3b3b" BorderThickness="0" Grid.Column="1" Grid.Row="5"/>
+			<TextBlock Text="Edit Card" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Light" FontSize="20" Grid.ColumnSpan="3" Grid.Row="7"/>
+			<Button x:Name="EditButton" Content="Edit" Click="EditButton_Click" Panel.ZIndex="3" FontSize="18" FontWeight="Light" Foreground="White" Background="#3b3b3b" BorderThickness="0" Grid.Column="1" Grid.Row="9"/>
+			<TextBlock Text="Delete Card" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Light" FontSize="20" Grid.ColumnSpan="3" Grid.Row="11"/>
+			<Button x:Name="DeleteButton" Content="Delete" Click="DeleteButton_Click" Panel.ZIndex="3" FontSize="18" FontWeight="Light" Foreground="White" Background="#3b3b3b" BorderThickness="0" Grid.Column="1" Grid.Row="13"/>
+			<TextBlock Text="Go to Collection" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Light" FontSize="20" Grid.ColumnSpan="3" Grid.Row="15"/>
+			<Button x:Name="CollectionButton" Content="Collection" Click="CollectionButton_Click" Panel.ZIndex="3" FontSize="18" FontWeight="Light" Foreground="White" Background="#3b3b3b" BorderThickness="0" Grid.Column="1" Grid.Row="17"/>
+		</Grid>
+		<Grid x:Name="ImportGrid" Visibility="Hidden" Panel.ZIndex="3" Grid.Column="3" Grid.RowSpan="4">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="10*"/>
+				<RowDefinition Height="12*"/>
+				<RowDefinition Height="6*"/>
+				<RowDefinition Height="8*"/>
+				<RowDefinition Height="1*"/>
+				<RowDefinition Height="10*"/>
+				<RowDefinition Height="6*"/>
+				<RowDefinition Height="8*"/>
+				<RowDefinition Height="1*"/>
+				<RowDefinition Height="10*"/>
+				<RowDefinition Height="80*"/>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="4*"/>
+				<ColumnDefinition Width="10*"/>
+				<ColumnDefinition Width="4*"/>
+			</Grid.ColumnDefinitions>
+			<TextBlock x:Name="test" Text="Imported Card" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Light" FontSize="30" Grid.ColumnSpan="3" Grid.Row="1"/>
+			<TextBlock Text="Save card to database" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Light" FontSize="20" Grid.ColumnSpan="3" Grid.Row="3"/>
+			<Button x:Name="SaveButton" Content="Save" Click="SaveButton_Click" Panel.ZIndex="3" FontSize="18" FontWeight="Light" Foreground="White" Background="#3b3b3b" BorderThickness="0" Grid.Column="1" Grid.Row="5"/>
+			<TextBlock Text="Don't save card to database" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Light" FontSize="20" Grid.ColumnSpan="3" Grid.Row="7"/>
+			<Button x:Name="CancelButton" Content="Cancel" Click="CancelButton_Click" Panel.ZIndex="3" FontSize="18" FontWeight="Light" Foreground="White" Background="#3b3b3b" BorderThickness="0" Grid.Column="1" Grid.Row="9"/>
+		</Grid>
 	</Grid>
 </Page>

@@ -28,7 +28,6 @@ C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\obj\Debug\netcoreap
 C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\obj\Debug\netcoreapp3.1\Preview.baml
 C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\obj\Debug\netcoreapp3.1\CardEditor.g.cs
 C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\obj\Debug\netcoreapp3.1\CardEditor.baml
-C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\obj\Debug\netcoreapp3.1\Card Creator.csprojAssemblyReference.cache
 D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\Card Creator.exe
 D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\Card Creator.deps.json
 D:\SCHOOL\PG5200 Toolsprogrammering\Eksamen\Project Folder\CardCreator\bin\Debug\netcoreapp3.1\Card Creator.runtimeconfig.json
@@ -132,3 +131,4 @@ C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\bin\Debug\netcoreap
 C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
 C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\obj\Debug\netcoreapp3.1\Card Creator.csprojAssemblyReference.cache
