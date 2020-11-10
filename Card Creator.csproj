@@ -5,6 +5,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>Card_Creator</RootNamespace>
     <UseWPF>true</UseWPF>
+    <Configurations>Debug;Release;Build</Configurations>
+    <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
 
   <ItemGroup>

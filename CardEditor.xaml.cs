@@ -256,7 +256,7 @@ namespace Card_Creator {
 					height = bitmapFrame.PixelHeight;
 					bitmapFrame = null;
 				}
-				if (!(width - height > 500) && !(width - height < -30)) {
+				if (!(width - height > 600) && !(width - height < -100)) {
 					return "Good";
 				} else {
 					return "Bad";

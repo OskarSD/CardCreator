@@ -4,7 +4,7 @@
 winexe
 C#
 .cs
-C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\obj\Debug\netcoreapp3.1\
+C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\obj\x64\Debug\netcoreapp3.1\
 Card_Creator
 none
 false
@@ -12,9 +12,9 @@ TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
 C:\Users\ostav\Documents\Visual Studio Projects\Card Creator\App.xaml
 6-1465940305
 
-20-1535315250
+20-919962606
 2171132871273
 CardEditor.xaml;Collection.xaml;MainWindow.xaml;Preview.xaml;TypeEditor.xaml;Types.xaml;
 
-False
+True
 
